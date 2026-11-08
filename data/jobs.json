@@ -1,0 +1,34 @@
+{
+  "jobs": [
+    {
+      "id": "senshi",
+      "name": "せんし",
+      "color": "#e8734a",
+      "special": "ふくふくパンチ",
+      "special_effect": "fukufuku_punch",
+      "special_power": 5,
+      "description": "ちからもちの せんし。ひっさつわざは ふくの グローブで れんだする ふくふくパンチ！",
+      "special_line": "{name}の ひっさつわざ！ ふくふくパンチ！"
+    },
+    {
+      "id": "mahou",
+      "name": "まほうつかい",
+      "color": "#7a5cff",
+      "special": "かいきょうゆめタワービーム",
+      "special_effect": "tower_beam",
+      "special_power": 5,
+      "description": "ふしぎな まほうつかい。ひっさつわざは かいきょうゆめタワーから キラキラの ビーム！",
+      "special_line": "{name}の ひっさつわざ！ かいきょうゆめタワービーム！"
+    },
+    {
+      "id": "souryo",
+      "name": "そうりょ",
+      "color": "#2bb3c0",
+      "special": "ペンギン ぞろぞろ ヒール",
+      "special_effect": "penguin_parade",
+      "special_power": 5,
+      "description": "やさしい そうりょ。ひっさつわざは かいきょうかんの ペンギンが ぞろぞろ こうしんする ヒール！",
+      "special_line": "{name}の ひっさつわざ！ ペンギン ぞろぞろ ヒール！"
+    }
+  ]
+}

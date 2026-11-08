@@ -1,0 +1,235 @@
+{
+  "number": 2,
+  "title": "へいせいの ようちえん",
+  "background": "yard_ch2",
+  "background_kind": "bg_yard_heisei",
+  "battle_background": "battle_ch2",
+  "start_pos": [
+    640,
+    620
+  ],
+  "walk_area": [
+    60,
+    330,
+    1220,
+    690
+  ],
+  "goal_monsters": [
+    "onebou",
+    "dokidoki"
+  ],
+  "kakera": "kakera_2",
+  "intro_dialogue": "intro",
+  "all_friends_dialogue": "all_friends",
+  "objects": [
+    {
+      "id": "sempai",
+      "category": "characters",
+      "visual": "sempai",
+      "kind": "adult",
+      "color": "#26a69a",
+      "pos": [
+        640,
+        360
+      ],
+      "size": [
+        120,
+        150
+      ],
+      "events": [
+        {
+          "if": [
+            "!ch2_talked"
+          ],
+          "dialogue": "npc_first",
+          "set": [
+            "ch2_talked"
+          ],
+          "give_card": "card_heisei"
+        },
+        {
+          "if": [
+            "!ch2_all_friends"
+          ],
+          "dialogue": "npc_hint"
+        },
+        {
+          "if": [
+            "!ch2_clear"
+          ],
+          "dialogue": "npc_clear",
+          "set": [
+            "ch2_clear"
+          ],
+          "then": "chapter_clear"
+        },
+        {
+          "dialogue": "npc_after"
+        }
+      ]
+    },
+    {
+      "id": "onebou",
+      "category": "monsters",
+      "visual": "onebou",
+      "kind": "monster_ghost",
+      "color": "#b3c7ff",
+      "pos": [
+        300,
+        520
+      ],
+      "size": [
+        130,
+        130
+      ],
+      "events": [
+        {
+          "if": [
+            "!ch2_talked"
+          ],
+          "dialogue": "monster_locked"
+        },
+        {
+          "if": [
+            "!friend_onebou"
+          ],
+          "dialogue": "monster_appear",
+          "battle": "onebou"
+        },
+        {
+          "dialogue": "onebou_friend"
+        }
+      ]
+    },
+    {
+      "id": "dokidoki",
+      "category": "monsters",
+      "visual": "dokidoki",
+      "kind": "monster_red",
+      "color": "#ffc93c",
+      "pos": [
+        1000,
+        560
+      ],
+      "size": [
+        130,
+        130
+      ],
+      "events": [
+        {
+          "if": [
+            "!ch2_talked"
+          ],
+          "dialogue": "monster_locked"
+        },
+        {
+          "if": [
+            "!friend_dokidoki"
+          ],
+          "dialogue": "monster_appear",
+          "battle": "dokidoki"
+        },
+        {
+          "dialogue": "dokidoki_friend"
+        }
+      ]
+    }
+  ],
+  "dialogues": {
+    "intro": [
+      {
+        "speaker": "narrator",
+        "text": "ときの とびらを くぐると… ここは へいせいの ようちえん！",
+        "voice": "ch2/intro_01"
+      },
+      {
+        "speaker": "narrator",
+        "text": "きょうは うんどうかいの ひ みたい。だれか いるよ。",
+        "voice": "ch2/intro_02"
+      }
+    ],
+    "npc_first": [
+      {
+        "speaker": "sempai",
+        "text": "あら、{name}！ わたしは へいせいの ころの せんせいよ。",
+        "voice": "ch2/npc_first_01"
+      },
+      {
+        "speaker": "sempai",
+        "text": "きょうは うんどうかい なんだけど、モンスターが きて こまって いるの。",
+        "voice": "ch2/npc_first_02"
+      },
+      {
+        "speaker": "sempai",
+        "text": "おねぼけゴーストと ドキドキライオンと なかよく なって くれる？",
+        "voice": "ch2/npc_first_03"
+      }
+    ],
+    "npc_hint": [
+      {
+        "speaker": "sempai",
+        "text": "モンスターは あと {remaining}ひき。がんばれー！",
+        "voice": ""
+      }
+    ],
+    "npc_clear": [
+      {
+        "speaker": "sempai",
+        "text": "ありがとう！ これで うんどうかいが できるよ！",
+        "voice": "ch2/npc_clear_01"
+      },
+      {
+        "speaker": "sempai",
+        "text": "おれいに 『えがおの かけら』を どうぞ！",
+        "voice": "ch2/npc_clear_02"
+      }
+    ],
+    "npc_after": [
+      {
+        "speaker": "sempai",
+        "text": "よーい どん！ みんな はしるの たのしそうだね。",
+        "voice": "ch2/npc_after_01"
+      }
+    ],
+    "monster_locked": [
+      {
+        "speaker": "narrator",
+        "text": "なにか いるみたい…。さきに せんせいに はなしかけて みよう。",
+        "voice": "ch2/monster_locked_01"
+      }
+    ],
+    "monster_appear": [
+      {
+        "speaker": "narrator",
+        "text": "あっ！ モンスターだ！",
+        "voice": "ch2/monster_appear_01"
+      }
+    ],
+    "onebou_friend": [
+      {
+        "speaker": "narrator",
+        "text": "おねぼけゴースト「めが さめた！ かけっこ がんばるよ！」",
+        "voice": "ch2/onebou_friend_01"
+      }
+    ],
+    "dokidoki_friend": [
+      {
+        "speaker": "narrator",
+        "text": "ドキドキライオン「おうえん ありがとう！ はしれそう！」",
+        "voice": "ch2/dokidoki_friend_01"
+      }
+    ],
+    "all_friends": [
+      {
+        "speaker": "narrator",
+        "text": "この じだいの モンスターと みんな なかよしに なった！",
+        "voice": "ch2/all_friends_01"
+      },
+      {
+        "speaker": "narrator",
+        "text": "せんせいの ところへ もどろう！",
+        "voice": "ch2/all_friends_02"
+      }
+    ]
+  }
+}

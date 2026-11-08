@@ -1,0 +1,235 @@
+{
+  "number": 3,
+  "title": "しょうわの ようちえん",
+  "background": "yard_ch3",
+  "background_kind": "bg_yard_showa",
+  "battle_background": "battle_ch3",
+  "start_pos": [
+    640,
+    620
+  ],
+  "walk_area": [
+    60,
+    330,
+    1220,
+    690
+  ],
+  "goal_monsters": [
+    "hokorin",
+    "kenka"
+  ],
+  "kakera": "kakera_3",
+  "intro_dialogue": "intro",
+  "all_friends_dialogue": "all_friends",
+  "objects": [
+    {
+      "id": "kodomo",
+      "category": "characters",
+      "visual": "kodomo",
+      "kind": "hero_girl",
+      "color": "#a1887f",
+      "pos": [
+        640,
+        360
+      ],
+      "size": [
+        120,
+        150
+      ],
+      "events": [
+        {
+          "if": [
+            "!ch3_talked"
+          ],
+          "dialogue": "npc_first",
+          "set": [
+            "ch3_talked"
+          ],
+          "give_card": "card_showa_kodomo"
+        },
+        {
+          "if": [
+            "!ch3_all_friends"
+          ],
+          "dialogue": "npc_hint"
+        },
+        {
+          "if": [
+            "!ch3_clear"
+          ],
+          "dialogue": "npc_clear",
+          "set": [
+            "ch3_clear"
+          ],
+          "then": "chapter_clear"
+        },
+        {
+          "dialogue": "npc_after"
+        }
+      ]
+    },
+    {
+      "id": "hokorin",
+      "category": "monsters",
+      "visual": "hokorin",
+      "kind": "monster_ghost",
+      "color": "#c9bfb3",
+      "pos": [
+        300,
+        520
+      ],
+      "size": [
+        130,
+        130
+      ],
+      "events": [
+        {
+          "if": [
+            "!ch3_talked"
+          ],
+          "dialogue": "monster_locked"
+        },
+        {
+          "if": [
+            "!friend_hokorin"
+          ],
+          "dialogue": "monster_appear",
+          "battle": "hokorin"
+        },
+        {
+          "dialogue": "hokorin_friend"
+        }
+      ]
+    },
+    {
+      "id": "kenka",
+      "category": "monsters",
+      "visual": "kenka",
+      "kind": "monster_dragon",
+      "color": "#ffa94d",
+      "pos": [
+        1000,
+        560
+      ],
+      "size": [
+        130,
+        130
+      ],
+      "events": [
+        {
+          "if": [
+            "!ch3_talked"
+          ],
+          "dialogue": "monster_locked"
+        },
+        {
+          "if": [
+            "!friend_kenka"
+          ],
+          "dialogue": "monster_appear",
+          "battle": "kenka"
+        },
+        {
+          "dialogue": "kenka_friend"
+        }
+      ]
+    }
+  ],
+  "dialogues": {
+    "intro": [
+      {
+        "speaker": "narrator",
+        "text": "ときの とびらを くぐると… ここは しょうわの ようちえん！",
+        "voice": "ch3/intro_01"
+      },
+      {
+        "speaker": "narrator",
+        "text": "えんしゃが いまと ちがうね。こどもが ひとり いるよ。",
+        "voice": "ch3/intro_02"
+      }
+    ],
+    "npc_first": [
+      {
+        "speaker": "kodomo",
+        "text": "あれ？ みたことない ふく！ どこから きたの？",
+        "voice": "ch3/npc_first_01"
+      },
+      {
+        "speaker": "kodomo",
+        "text": "いま、ほこりんぼと ぷんぷんバイキンが あばれて いるの。",
+        "voice": "ch3/npc_first_02"
+      },
+      {
+        "speaker": "kodomo",
+        "text": "いっしょに なかよく なって くれる？",
+        "voice": "ch3/npc_first_03"
+      }
+    ],
+    "npc_hint": [
+      {
+        "speaker": "kodomo",
+        "text": "あと {remaining}ひき だよ！",
+        "voice": ""
+      }
+    ],
+    "npc_clear": [
+      {
+        "speaker": "kodomo",
+        "text": "すごい！ みんな なかよしに なったね！",
+        "voice": "ch3/npc_clear_01"
+      },
+      {
+        "speaker": "kodomo",
+        "text": "これ、たからものの 『えがおの かけら』。あげる！",
+        "voice": "ch3/npc_clear_02"
+      }
+    ],
+    "npc_after": [
+      {
+        "speaker": "kodomo",
+        "text": "おとなに なっても この ようちえんの こと わすれないよ。",
+        "voice": "ch3/npc_after_01"
+      }
+    ],
+    "monster_locked": [
+      {
+        "speaker": "narrator",
+        "text": "なにか いるみたい…。さきに こどもに はなしかけて みよう。",
+        "voice": "ch3/monster_locked_01"
+      }
+    ],
+    "monster_appear": [
+      {
+        "speaker": "narrator",
+        "text": "あっ！ モンスターだ！",
+        "voice": "ch3/monster_appear_01"
+      }
+    ],
+    "hokorin_friend": [
+      {
+        "speaker": "narrator",
+        "text": "ほこりんぼ「ぴかぴかの えんしゃ、きもちいいね！」",
+        "voice": "ch3/hokorin_friend_01"
+      }
+    ],
+    "kenka_friend": [
+      {
+        "speaker": "narrator",
+        "text": "ぷんぷんバイキン「ごめんねって いえたよ！」",
+        "voice": "ch3/kenka_friend_01"
+      }
+    ],
+    "all_friends": [
+      {
+        "speaker": "narrator",
+        "text": "この じだいの モンスターと みんな なかよしに なった！",
+        "voice": "ch3/all_friends_01"
+      },
+      {
+        "speaker": "narrator",
+        "text": "こどもの ところへ もどろう！",
+        "voice": "ch3/all_friends_02"
+      }
+    ]
+  }
+}

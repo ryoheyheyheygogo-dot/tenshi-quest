@@ -1,0 +1,35 @@
+# Netlify の設定（GitHub 連携でデプロイするとき）
+# ・publish：このフォルダを そのまま 公開
+# ・command：画像の一覧 assets/manifest.json を 自動で つくる
+[build]
+  publish = "."
+  command = "python3 tools/make_manifest.py"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+
+# 文章やプログラムを 直したら すぐ 反映されるように
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "no-cache"
+[[headers]]
+  for = "/assets/manifest.json"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+# 画像・音・フォントは 1日 キャッシュ
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

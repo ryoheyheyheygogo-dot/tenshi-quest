@@ -1,0 +1,309 @@
+{
+  "number": 1,
+  "title": "だい1しょう いまの ようちえん",
+  "background": "yard_ch1",
+  "background_kind": "bg_yard",
+  "battle_background": "battle_ch1",
+  "start_pos": [
+    700,
+    560
+  ],
+  "walk_area": [
+    150,
+    290,
+    1150,
+    690
+  ],
+  "goal_monsters": [
+    "sukikirai",
+    "chirakari"
+  ],
+  "kakera": "kakera_1",
+  "intro_dialogue": "intro",
+  "all_friends_dialogue": "all_friends",
+  "objects": [
+    {
+      "id": "encho",
+      "category": "characters",
+      "visual": "encho",
+      "kind": "teacher",
+      "color": "#7a5cff",
+      "pos": [
+        690,
+        300
+      ],
+      "size": [
+        120,
+        150
+      ],
+      "events": [
+        {
+          "if": [
+            "!talked_encho"
+          ],
+          "dialogue": "encho_first",
+          "set": [
+            "talked_encho"
+          ],
+          "give_card": "card_ima"
+        },
+        {
+          "if": [
+            "!ch1_all_friends"
+          ],
+          "dialogue": "encho_hint"
+        },
+        {
+          "if": [
+            "!ch1_clear"
+          ],
+          "dialogue": "encho_clear",
+          "set": [
+            "ch1_clear"
+          ],
+          "give_card": "card_encho",
+          "then": "chapter_clear"
+        },
+        {
+          "dialogue": "encho_after"
+        }
+      ]
+    },
+    {
+      "id": "sukikirai",
+      "category": "monsters",
+      "visual": "sukikirai",
+      "kind": "monster_blob",
+      "color": "#8bc34a",
+      "pos": [
+        330,
+        470
+      ],
+      "size": [
+        130,
+        130
+      ],
+      "events": [
+        {
+          "if": [
+            "!talked_encho"
+          ],
+          "dialogue": "monster_locked"
+        },
+        {
+          "if": [
+            "!friend_sukikirai"
+          ],
+          "dialogue": "sukikirai_appear",
+          "battle": "sukikirai"
+        },
+        {
+          "dialogue": "sukikirai_friend"
+        }
+      ]
+    },
+    {
+      "id": "chirakari",
+      "category": "monsters",
+      "visual": "chirakari",
+      "kind": "monster_red",
+      "color": "#ff6b6b",
+      "pos": [
+        560,
+        610
+      ],
+      "size": [
+        130,
+        130
+      ],
+      "events": [
+        {
+          "if": [
+            "!talked_encho"
+          ],
+          "dialogue": "monster_locked"
+        },
+        {
+          "if": [
+            "!friend_chirakari"
+          ],
+          "dialogue": "chirakari_appear",
+          "battle": "chirakari"
+        },
+        {
+          "dialogue": "chirakari_friend"
+        }
+      ]
+    },
+    {
+      "id": "chest1",
+      "category": "ui",
+      "visual": "chest",
+      "visual_after": "chest_open",
+      "after_flag": "chest1_open",
+      "kind": "chest",
+      "color": "#c8873a",
+      "pos": [
+        930,
+        640
+      ],
+      "size": [
+        100,
+        90
+      ],
+      "events": [
+        {
+          "if": [
+            "!chest1_open"
+          ],
+          "dialogue": "chest1",
+          "set": [
+            "chest1_open"
+          ],
+          "give_card": "card_asobiba"
+        },
+        {
+          "dialogue": "chest_empty"
+        }
+      ]
+    }
+  ],
+  "dialogues": {
+    "intro": [
+      {
+        "speaker": "narrator",
+        "text": "ここは てんし ようちえんの えんてい。",
+        "voice": "ch1/intro_01"
+      },
+      {
+        "speaker": "narrator",
+        "text": "えんちょうせんせいが {name}を よんでいるよ。",
+        "voice": "ch1/intro_02"
+      },
+      {
+        "speaker": "narrator",
+        "text": "いきたい ところを タッチすると あるけるよ。",
+        "voice": "ch1/intro_03"
+      }
+    ],
+    "encho_first": [
+      {
+        "speaker": "encho",
+        "text": "ようこそ、{name}！ まっていたよ。",
+        "voice": "ch1/encho_first_01"
+      },
+      {
+        "speaker": "encho",
+        "text": "てんし ようちえんは ことしで 75さいの おたんじょうび なんだよ。",
+        "voice": "ch1/encho_first_02"
+      },
+      {
+        "speaker": "encho",
+        "text": "でもね、ようちえんの あちこちに なかよしモンスターが あらわれて こまっているの。",
+        "voice": "ch1/encho_first_03"
+      },
+      {
+        "speaker": "encho",
+        "text": "モンスターと なかよしに なって、『えがおの かけら』を あつめて くれるかな？",
+        "voice": "ch1/encho_first_04"
+      },
+      {
+        "speaker": "encho",
+        "text": "えんていに いる モンスターに はなしかけて みてね。",
+        "voice": "ch1/encho_first_05"
+      }
+    ],
+    "encho_hint": [
+      {
+        "speaker": "encho",
+        "text": "モンスターは あと {remaining}ひき いるよ。がんばってね！",
+        "voice": ""
+      }
+    ],
+    "encho_clear": [
+      {
+        "speaker": "encho",
+        "text": "わあ！ モンスターと みんな なかよしに なれたね！",
+        "voice": "ch1/encho_clear_01"
+      },
+      {
+        "speaker": "encho",
+        "text": "ありがとう、{name}。これは だい1しょうの 『えがおの かけら』だよ。",
+        "voice": "ch1/encho_clear_02"
+      },
+      {
+        "speaker": "encho",
+        "text": "これで 『ときの とびら』が ひらくよ。むかしの ようちえんへ いってみよう！",
+        "voice": "ch1/encho_clear_03"
+      }
+    ],
+    "encho_after": [
+      {
+        "speaker": "encho",
+        "text": "ときの とびらから いろんな じだいへ いけるよ。",
+        "voice": "ch1/encho_after_01"
+      }
+    ],
+    "all_friends": [
+      {
+        "speaker": "narrator",
+        "text": "えんていの モンスターと みんな なかよしに なった！",
+        "voice": "ch1/all_friends_01"
+      },
+      {
+        "speaker": "narrator",
+        "text": "えんちょうせんせいの ところへ もどろう！",
+        "voice": "ch1/all_friends_02"
+      }
+    ],
+    "monster_locked": [
+      {
+        "speaker": "narrator",
+        "text": "なにか いるみたい…。さきに えんちょうせんせいに あいに いこう。",
+        "voice": "ch1/monster_locked_01"
+      }
+    ],
+    "sukikirai_appear": [
+      {
+        "speaker": "narrator",
+        "text": "あっ！ モンスターだ！",
+        "voice": "ch1/sukikirai_appear_01"
+      }
+    ],
+    "sukikirai_friend": [
+      {
+        "speaker": "narrator",
+        "text": "すききらいモンスター「ピーマン ひとくち たべられたよ！ ありがとう！」",
+        "voice": "ch1/sukikirai_friend_01"
+      }
+    ],
+    "chirakari_appear": [
+      {
+        "speaker": "narrator",
+        "text": "あっ！ モンスターだ！",
+        "voice": "ch1/chirakari_appear_01"
+      }
+    ],
+    "chirakari_friend": [
+      {
+        "speaker": "narrator",
+        "text": "ちらかりレッド「かたづけたら きもちいいね！」",
+        "voice": "ch1/chirakari_friend_01"
+      }
+    ],
+    "chest1": [
+      {
+        "speaker": "narrator",
+        "text": "たからばこを あけた！ なかに なにか はいっているよ。",
+        "voice": "ch1/chest1_01"
+      }
+    ],
+    "chest_empty": [
+      {
+        "speaker": "narrator",
+        "text": "たからばこは からっぽだ。",
+        "voice": "ch1/chest_empty_01"
+      }
+    ]
+  }
+}

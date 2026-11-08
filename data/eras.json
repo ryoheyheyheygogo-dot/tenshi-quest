@@ -1,0 +1,68 @@
+{
+  "title": "ときの とびら",
+  "eras": [
+    {
+      "chapter": 1,
+      "name": "いまの ようちえん",
+      "short": "いま",
+      "color": "#ff8a65"
+    },
+    {
+      "chapter": 2,
+      "name": "へいせいの ようちえん",
+      "short": "へいせい",
+      "color": "#4db6ac"
+    },
+    {
+      "chapter": 3,
+      "name": "しょうわの ようちえん",
+      "short": "しょうわ",
+      "color": "#a1887f"
+    },
+    {
+      "chapter": 4,
+      "name": "はじまりの ようちえん",
+      "short": "はじまり",
+      "color": "#ba68c8"
+    }
+  ],
+  "hub_intro": [
+    {
+      "speaker": "encho",
+      "text": "ときの とびらが ひらいたよ！",
+      "voice": "hub/intro_01"
+    },
+    {
+      "speaker": "encho",
+      "text": "へいせい、しょうわ、はじまり。すきな じだいから いってごらん。",
+      "voice": "hub/intro_02"
+    },
+    {
+      "speaker": "encho",
+      "text": "4つの 『えがおの かけら』が そろうと、すてきな ことが おきるよ。",
+      "voice": "hub/intro_03"
+    }
+  ],
+  "ending": [
+    {
+      "speaker": "encho",
+      "text": "{name}、4つの えがおの かけらが そろったね！",
+      "voice": "ending/01"
+    },
+    {
+      "speaker": "encho",
+      "text": "75ねんぶんの えがおで、おいわいの きに はなが さいたよ。",
+      "voice": "ending/02"
+    },
+    {
+      "speaker": "encho",
+      "text": "これからの ようちえんを つくるのは、{name}たち みんなだよ。",
+      "voice": "ending/03"
+    },
+    {
+      "speaker": "encho",
+      "text": "てんし ようちえん、75さい おめでとう！",
+      "voice": "ending/04"
+    }
+  ]
+}

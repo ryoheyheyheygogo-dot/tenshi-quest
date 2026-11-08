@@ -1,0 +1,34 @@
+{
+  "speakers": {
+    "narrator": {
+      "name": ""
+    },
+    "hero": {
+      "name": "{name}"
+    },
+    "encho": {
+      "name": "えんちょうせんせい",
+      "visual": "encho",
+      "kind": "teacher",
+      "color": "#7a5cff"
+    },
+    "sempai": {
+      "name": "へいせいの せんせい",
+      "visual": "sempai",
+      "kind": "adult",
+      "color": "#26a69a"
+    },
+    "kodomo": {
+      "name": "しょうわの こども",
+      "visual": "kodomo",
+      "kind": "hero_girl",
+      "color": "#a1887f"
+    },
+    "founder": {
+      "name": "ようちえんを つくった ひと",
+      "visual": "founder",
+      "kind": "teacher",
+      "color": "#8d6e63"
+    }
+  }
+}

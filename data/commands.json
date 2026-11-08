@@ -1,0 +1,13 @@
+{
+  "commands": [
+    { "id": "aisatsu",     "label": "あいさつ",     "color": "#f5a623", "line": "{name}は げんきに 「おはよう！」と いった！" },
+    { "id": "katazuke",    "label": "かたづけ",     "color": "#4a90e2", "line": "{name}は おもちゃを ぴかぴかに かたづけた！" },
+    { "id": "itadakimasu", "label": "いただきます", "color": "#e8505b", "line": "{name}は 「いただきます！」と ぱくっと たべた！" },
+    { "id": "hayaoki",     "label": "はやおき",     "color": "#7ed321", "line": "{name}は めざましを ジリリリと ならした！" },
+    { "id": "nakanaori",   "label": "なかなおり",   "color": "#bd5ce0", "line": "{name}は 「ごめんね」「いいよ」と てを つないだ！" }
+  ],
+  "heart_max": 10,
+  "heart_good": 4,
+  "heart_normal": 1,
+  "hint_after_misses": 2
+}

@@ -1,0 +1,43 @@
+{
+  "default_name": "ゆうしゃ",
+  "max_name_length": 4,
+  "genders": [
+    {
+      "id": "boy",
+      "label": "おとこのこ",
+      "kind": "hero_boy"
+    },
+    {
+      "id": "girl",
+      "label": "おんなのこ",
+      "kind": "hero_girl"
+    }
+  ],
+  "colors": [
+    {
+      "id": "aka",
+      "label": "あか",
+      "color": "#e8505b"
+    },
+    {
+      "id": "ao",
+      "label": "あお",
+      "color": "#3d7eea"
+    },
+    {
+      "id": "kiiro",
+      "label": "きいろ",
+      "color": "#f2b705"
+    },
+    {
+      "id": "midori",
+      "label": "みどり",
+      "color": "#3bb273"
+    },
+    {
+      "id": "murasaki",
+      "label": "むらさき",
+      "color": "#9c5ccf"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+fonts/youchien_font.otf は Noto Sans CJK JP Bold（Google / Adobe）を
+このゲームで使う文字だけに しぼったものです。
+
+ライセンス: SIL Open Font License 1.1
+https://github.com/notofonts/noto-cjk
+https://openfontlicense.org
+
+OFL では フォントを ゲームに 同梱・配布できます（フォント単体の販売は不可）。
+しぼった版は 元の名前と区別するため ファイル名を youchien_font.otf にしています。

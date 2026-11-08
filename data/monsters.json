@@ -1,0 +1,135 @@
+{
+  "monsters": {
+    "sukikirai": {
+      "name": "すききらいモンスター",
+      "kind": "monster_blob",
+      "color": "#8bc34a",
+      "weak": "itadakimasu",
+      "card": "card_kyushoku",
+      "voice_prefix": "monster/sukikirai",
+      "appear": "すききらいモンスターが あらわれた！",
+      "actions": [
+        "すききらいモンスターは ピーマンを おさらの はじに よけた！",
+        "すききらいモンスターは ぷいっと そっぽを むいた！",
+        "すききらいモンスターは にんじんを じーっと みている…"
+      ],
+      "good_reaction": "「ひとくち たべたら… おいしい！」",
+      "normal_reaction": "すききらいモンスターは ちょっと うれしそう。",
+      "friend": "すききらいモンスターと なかよしに なった！"
+    },
+    "chirakari": {
+      "name": "ちらかりレッド",
+      "kind": "monster_red",
+      "color": "#ff6b6b",
+      "weak": "katazuke",
+      "card": "card_omocha",
+      "voice_prefix": "monster/chirakari",
+      "appear": "ちらかりレッドが あらわれた！",
+      "actions": [
+        "ちらかりレッドは つみきを ぽいっと なげた！",
+        "ちらかりレッドは えほんを ひろげっぱなしに した！",
+        "ちらかりレッドは くるくる まわっている！"
+      ],
+      "good_reaction": "「かたづけたら きもちいい〜！」",
+      "normal_reaction": "ちらかりレッドは ちょっと にこにこ した。",
+      "friend": "ちらかりレッドと なかよしに なった！"
+    },
+    "onebou": {
+      "name": "おねぼけゴースト",
+      "kind": "monster_ghost",
+      "color": "#b3c7ff",
+      "weak": "hayaoki",
+      "card": "card_undokai",
+      "voice_prefix": "monster/onebou",
+      "appear": "おねぼけゴーストが あらわれた！",
+      "actions": [
+        "おねぼけゴーストは ふわあ〜と あくびを した！",
+        "おねぼけゴーストは うとうと している…"
+      ],
+      "good_reaction": "「おはよう！ めが さめた〜！」",
+      "normal_reaction": "おねぼけゴーストは ちょっと めを あけた。",
+      "friend": "おねぼけゴーストと なかよしに なった！"
+    },
+    "hazukashi": {
+      "name": "はずかしがりプラント",
+      "kind": "monster_plant",
+      "color": "#ffb3d1",
+      "weak": "aisatsu",
+      "card": "card_nyuen",
+      "voice_prefix": "monster/hazukashi",
+      "appear": "はずかしがりプラントが あらわれた！",
+      "actions": [
+        "はずかしがりプラントは はっぱで かおを かくした！",
+        "はずかしがりプラントは もじもじ している…"
+      ],
+      "good_reaction": "「お、おはよう…！」",
+      "normal_reaction": "はずかしがりプラントは ちらっと こちらを みた。",
+      "friend": "はずかしがりプラントと なかよしに なった！"
+    },
+    "kenka": {
+      "name": "ぷんぷんバイキン",
+      "kind": "monster_dragon",
+      "color": "#ffa94d",
+      "weak": "nakanaori",
+      "card": "card_mukashi_asobi",
+      "voice_prefix": "monster/kenka",
+      "appear": "ぷんぷんバイキンが あらわれた！",
+      "actions": [
+        "ぷんぷんバイキンは ぷんぷん おこっている！",
+        "ぷんぷんバイキンは トゲトゲを ふくらませた！"
+      ],
+      "good_reaction": "「ごめんね… いいよ！」",
+      "normal_reaction": "ぷんぷんバイキンは すこし おちついた。",
+      "friend": "ぷんぷんバイキンと なかよしに なった！"
+    },
+    "dokidoki": {
+      "name": "ドキドキライオン",
+      "kind": "monster_red",
+      "color": "#ffc93c",
+      "weak": "aisatsu",
+      "card": "card_ouen",
+      "voice_prefix": "monster/dokidoki",
+      "appear": "ドキドキライオンが あらわれた！",
+      "actions": [
+        "ドキドキライオンは かけっこの まえで ふるえている…",
+        "ドキドキライオンは しっぽを ぎゅっと にぎった！",
+        "ドキドキライオンは うつむいている…"
+      ],
+      "good_reaction": "「げんきな こえで ゆうきが でたよ！」",
+      "normal_reaction": "ドキドキライオンは すこし えがおに なった。",
+      "friend": "ドキドキライオンと なかよしに なった！"
+    },
+    "hokorin": {
+      "name": "ほこりんぼ",
+      "kind": "monster_ghost",
+      "color": "#c9bfb3",
+      "weak": "katazuke",
+      "card": "card_showa",
+      "voice_prefix": "monster/hokorin",
+      "appear": "ほこりんぼが あらわれた！",
+      "actions": [
+        "ほこりんぼは ほこりを もくもく まきちらした！",
+        "ほこりんぼは すみっこで ごろごろ している…"
+      ],
+      "good_reaction": "「ぴかぴかって きもちいい〜！」",
+      "normal_reaction": "ほこりんぼは すこし きれいに なった。",
+      "friend": "ほこりんぼと なかよしに なった！"
+    },
+    "harapeko": {
+      "name": "はらぺこミルク",
+      "kind": "monster_blob",
+      "color": "#c8a27a",
+      "weak": "itadakimasu",
+      "card": "card_obento",
+      "voice_prefix": "monster/harapeko",
+      "appear": "はらぺこミルクが あらわれた！",
+      "actions": [
+        "はらぺこミルクは おなかを ぐうぐう ならした！",
+        "はらぺこミルクは きょろきょろ している…"
+      ],
+      "good_reaction": "「みんなで たべると おいしいね！」",
+      "normal_reaction": "はらぺこミルクは ちょっと げんきに なった。",
+      "friend": "はらぺこミルクと なかよしに なった！"
+    }
+  }
+}

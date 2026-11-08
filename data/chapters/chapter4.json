@@ -1,0 +1,235 @@
+{
+  "number": 4,
+  "title": "はじまりの ようちえん",
+  "background": "yard_ch4",
+  "background_kind": "bg_yard_hajimari",
+  "battle_background": "battle_ch4",
+  "start_pos": [
+    640,
+    620
+  ],
+  "walk_area": [
+    60,
+    330,
+    1220,
+    690
+  ],
+  "goal_monsters": [
+    "hazukashi",
+    "harapeko"
+  ],
+  "kakera": "kakera_4",
+  "intro_dialogue": "intro",
+  "all_friends_dialogue": "all_friends",
+  "objects": [
+    {
+      "id": "founder",
+      "category": "characters",
+      "visual": "founder",
+      "kind": "teacher",
+      "color": "#8d6e63",
+      "pos": [
+        640,
+        360
+      ],
+      "size": [
+        120,
+        150
+      ],
+      "events": [
+        {
+          "if": [
+            "!ch4_talked"
+          ],
+          "dialogue": "npc_first",
+          "set": [
+            "ch4_talked"
+          ],
+          "give_card": "card_hajimari"
+        },
+        {
+          "if": [
+            "!ch4_all_friends"
+          ],
+          "dialogue": "npc_hint"
+        },
+        {
+          "if": [
+            "!ch4_clear"
+          ],
+          "dialogue": "npc_clear",
+          "set": [
+            "ch4_clear"
+          ],
+          "then": "chapter_clear"
+        },
+        {
+          "dialogue": "npc_after"
+        }
+      ]
+    },
+    {
+      "id": "hazukashi",
+      "category": "monsters",
+      "visual": "hazukashi",
+      "kind": "monster_plant",
+      "color": "#ffb3d1",
+      "pos": [
+        300,
+        520
+      ],
+      "size": [
+        130,
+        130
+      ],
+      "events": [
+        {
+          "if": [
+            "!ch4_talked"
+          ],
+          "dialogue": "monster_locked"
+        },
+        {
+          "if": [
+            "!friend_hazukashi"
+          ],
+          "dialogue": "monster_appear",
+          "battle": "hazukashi"
+        },
+        {
+          "dialogue": "hazukashi_friend"
+        }
+      ]
+    },
+    {
+      "id": "harapeko",
+      "category": "monsters",
+      "visual": "harapeko",
+      "kind": "monster_blob",
+      "color": "#c8a27a",
+      "pos": [
+        1000,
+        560
+      ],
+      "size": [
+        130,
+        130
+      ],
+      "events": [
+        {
+          "if": [
+            "!ch4_talked"
+          ],
+          "dialogue": "monster_locked"
+        },
+        {
+          "if": [
+            "!friend_harapeko"
+          ],
+          "dialogue": "monster_appear",
+          "battle": "harapeko"
+        },
+        {
+          "dialogue": "harapeko_friend"
+        }
+      ]
+    }
+  ],
+  "dialogues": {
+    "intro": [
+      {
+        "speaker": "narrator",
+        "text": "ときの とびらを くぐると… ここは 75ねん まえ、はじまりの ようちえん！",
+        "voice": "ch4/intro_01"
+      },
+      {
+        "speaker": "narrator",
+        "text": "ちいさな えんしゃの まえに だれか いるよ。",
+        "voice": "ch4/intro_02"
+      }
+    ],
+    "npc_first": [
+      {
+        "speaker": "founder",
+        "text": "ようこそ、{name}。わたしが この ようちえんを つくったんだよ。",
+        "voice": "ch4/npc_first_01"
+      },
+      {
+        "speaker": "founder",
+        "text": "こどもたちが えがおで そだつ ばしょに したくてね。",
+        "voice": "ch4/npc_first_02"
+      },
+      {
+        "speaker": "founder",
+        "text": "でも はずかしがりプラントと はらぺこミルクが まだ なじめないんだ。たすけて くれるかい？",
+        "voice": "ch4/npc_first_03"
+      }
+    ],
+    "npc_hint": [
+      {
+        "speaker": "founder",
+        "text": "あと {remaining}ひき。ゆっくりで いいよ。",
+        "voice": ""
+      }
+    ],
+    "npc_clear": [
+      {
+        "speaker": "founder",
+        "text": "ありがとう。きみの えがおが みんなを げんきに したね。",
+        "voice": "ch4/npc_clear_01"
+      },
+      {
+        "speaker": "founder",
+        "text": "さいごの 『えがおの かけら』だよ。75ねんごの ようちえんを よろしくね。",
+        "voice": "ch4/npc_clear_02"
+      }
+    ],
+    "npc_after": [
+      {
+        "speaker": "founder",
+        "text": "この ようちえんが ずっと えがおで いっぱい でありますように。",
+        "voice": "ch4/npc_after_01"
+      }
+    ],
+    "monster_locked": [
+      {
+        "speaker": "narrator",
+        "text": "なにか いるみたい…。さきに ようちえんを つくった ひとに はなしかけて みよう。",
+        "voice": "ch4/monster_locked_01"
+      }
+    ],
+    "monster_appear": [
+      {
+        "speaker": "narrator",
+        "text": "あっ！ モンスターだ！",
+        "voice": "ch4/monster_appear_01"
+      }
+    ],
+    "hazukashi_friend": [
+      {
+        "speaker": "narrator",
+        "text": "はずかしがりプラント「おはようって いえたよ！」",
+        "voice": "ch4/hazukashi_friend_01"
+      }
+    ],
+    "harapeko_friend": [
+      {
+        "speaker": "narrator",
+        "text": "はらぺこミルク「いただきます！ みんなで たべると おいしい！」",
+        "voice": "ch4/harapeko_friend_01"
+      }
+    ],
+    "all_friends": [
+      {
+        "speaker": "narrator",
+        "text": "この じだいの モンスターと みんな なかよしに なった！",
+        "voice": "ch4/all_friends_01"
+      },
+      {
+        "speaker": "narrator",
+        "text": "ようちえんを つくった ひとの ところへ もどろう！",
+        "voice": "ch4/all_friends_02"
+      }
+    ]
+  }
+}

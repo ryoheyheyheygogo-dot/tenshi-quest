@@ -1,0 +1,99 @@
+/* ようちえん クエスト：画面は 1280×720 を 基準に、端末に合わせて 拡大・縮小する */
+
+@font-face {
+  font-family: "YouchienFont";
+  src: url("../fonts/youchien_font.woff") format("woff"), url("../fonts/youchien_font.otf") format("opentype");
+  font-weight: bold;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+html, body {
+  margin: 0; height: 100%; overflow: hidden;
+  background: #2b2233;
+  font-family: "YouchienFont", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Noto Sans JP", "Meiryo", sans-serif;
+  font-weight: bold;
+  color: #3a2e2a;
+  user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+  touch-action: manipulation;
+  overscroll-behavior: none;
+}
+
+#stage {
+  position: absolute; left: 50%; top: 50%;
+  width: 1280px; height: 720px;
+  transform-origin: 0 0;
+  overflow: hidden;
+  background: #fff4e1;
+}
+#screen, #overlay { position: absolute; inset: 0; }
+#overlay { pointer-events: none; }
+#overlay > * { pointer-events: auto; }
+#fade { position: absolute; inset: 0; background: #fffaf0; opacity: 0; pointer-events: none; transition: opacity .18s; z-index: 1000; }
+#fade.on { opacity: 1; pointer-events: auto; }
+
+#boot { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 32px; background: #2b2233; z-index: 2000; }
+#rotate-notice {
+  display: none; position: fixed; inset: 0; z-index: 3000;
+  background: #ffcc80; color: #fff; font-size: 11vw; align-items: center; justify-content: center; text-align: center;
+  text-shadow: 0 0 8px #e65100, 3px 3px 0 #e65100, -3px 3px 0 #e65100, 3px -3px 0 #e65100, -3px -3px 0 #e65100;
+}
+@media (orientation: portrait) { #rotate-notice { display: flex; } }
+
+/* ---------- 部品 ---------- */
+.abs { position: absolute; }
+.fill { position: absolute; inset: 0; }
+.vis { position: absolute; pointer-events: none; }
+.vis svg, .vis img { width: 100%; height: 100%; display: block; }
+.vis img { object-fit: contain; image-rendering: pixelated; }
+.vis.smooth img { image-rendering: auto; }
+
+.label {
+  position: absolute; display: flex; align-items: center; justify-content: center; text-align: center;
+  line-height: 1.35; pointer-events: none; white-space: pre-line;
+  word-break: keep-all; overflow-wrap: anywhere; /* わかちがきの スペースで 改行する */
+}
+.label.left { justify-content: flex-start; text-align: left; }
+.label.top { align-items: flex-start; }
+
+.outline { --oc: #e8505b; --ow: 3px;
+  text-shadow:
+    var(--ow) 0 0 var(--oc), calc(var(--ow) * -1) 0 0 var(--oc), 0 var(--ow) 0 var(--oc), 0 calc(var(--ow) * -1) 0 var(--oc),
+    var(--ow) var(--ow) 0 var(--oc), calc(var(--ow) * -1) var(--ow) 0 var(--oc), var(--ow) calc(var(--ow) * -1) 0 var(--oc), calc(var(--ow) * -1) calc(var(--ow) * -1) 0 var(--oc);
+}
+
+.panel { position: absolute; border-radius: 28px; border: 5px solid #8a6d5a; background: #fffaf0; box-shadow: 0 5px 8px rgba(0,0,0,.18); }
+
+.btn {
+  position: absolute; border-radius: 28px; border: 4px solid rgba(0,0,0,.25);
+  color: #fff; font: inherit; font-weight: bold; padding: 4px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
+  box-shadow: 0 6px 6px rgba(0,0,0,.18); cursor: pointer;
+  transition: transform .08s, filter .08s;
+}
+.btn:active:not(:disabled) { transform: scale(.93); filter: brightness(.92); box-shadow: 0 2px 3px rgba(0,0,0,.18); }
+.btn:disabled { background: #c9c3bd !important; border-color: #a59d95 !important; cursor: default; box-shadow: none; }
+.btn:disabled .ic { opacity: .7; }
+.btn .ic { position: relative; flex: none; pointer-events: none; }
+.btn .tx { pointer-events: none; line-height: 1.15; white-space: nowrap; }
+.btn.white { color: #3a2e2a; }
+.btn.selected { border-width: 10px; }
+
+.dim { position: absolute; inset: 0; background: rgba(26, 20, 38, .58); }
+
+@keyframes wiggle { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+.wiggle { animation: wiggle .9s ease-in-out infinite; }
+@keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.bob { animation: bob 1.2s ease-in-out infinite; }
+@keyframes sway { 0%, 100% { transform: rotate(2.3deg); } 50% { transform: rotate(-2.3deg); } }
+.sway { animation: sway 1.6s ease-in-out infinite; }
+@keyframes nudge { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(12px); } }
+.nudge { animation: nudge .8s ease-in-out infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 6s linear infinite; }
+
+/* マップ */
+.layer { position: absolute; inset: 0; isolation: isolate; pointer-events: none; }
+.obj { position: absolute; pointer-events: auto; cursor: pointer; }
+.hud { z-index: 10; }
