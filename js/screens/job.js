@@ -22,7 +22,7 @@ export function build(root) {
     place(win, 56, 14, 260, 222);
     Object.assign(win.style, { overflow: "hidden", borderRadius: "18px", background: shadeColor(col, 0.82), border: `4px solid ${shadeColor(col, 0.5)}`, pointerEvents: "none" });
     const art = Assets.visual("characters", [`job_${j.id}_${g}`, `job_${j.id}`], 230, 206, `hero_${g}`, col);
-    place(art, j.art_align && j.art_align.startsWith("left") ? 0 : 11, 8);
+    place(art, j.art_align && j.art_align.startsWith("left") ? 0 : 11, 6);
     art.classList.add("job-art");
     art.style.setProperty("--pos", j.art_align || "center bottom");
     win.appendChild(art);

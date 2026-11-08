@@ -9,7 +9,7 @@
       "special_power": 5,
       "description": "ちからもちの せんし。ひっさつわざは ふくの グローブで れんだする ふくふくパンチ！",
       "special_line": "{name}の ひっさつわざ！ ふくふくパンチ！",
-      "art_align": "left bottom"
+      "art_align": "center bottom"
     },
     {
       "id": "mahou",
