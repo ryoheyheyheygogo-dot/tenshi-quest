@@ -41,7 +41,7 @@ export async function build(root) {
   }
 
   button(root, "", { x: 1150, y: 20, w: 110, h: 110, color: "#9575cd", icon: Game.settings.voice ? "speaker" : "speaker_off", iconSize: 64,
-    onClick: () => { Game.setVoice(!Game.settings.voice); Game.goto("title"); } });
+    onClick: () => { Game.setVoice(!Game.settings.voice); Game.goto("title"); } }); // こえ・きょく まとめて オン／オフ
 }
 
 function beginNew() {

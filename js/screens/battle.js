@@ -9,6 +9,7 @@ import { Voice } from "../voice.js";
 import { el, place, anim } from "../util.js";
 import { label, button, panel, HeartGauge } from "../ui.js";
 import { Effects } from "../effects.js";
+import { Bgm } from "../bgm.js";
 
 const MW = 340, MH = 340, MX = 470, MY = 40;
 const TARGET = { x: MX + MW / 2, y: MY + MH / 2 };
@@ -153,6 +154,8 @@ export async function build(root, params) {
     if (alive) Game.goto("map", { after_battle: id, card: m.card, new_card: isNew });
   }
 
+  // バトル曲（モンスターごとに "bgm" で かえられる）
+  Bgm.play(m.bgm || DB.commands.battle_bgm, DB.commands.bgm_volume ?? 0.8);
   intro();
-  return { destroy() { alive = false; } };
+  return { destroy() { alive = false; Bgm.stop(); } };
 }

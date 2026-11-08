@@ -4,6 +4,7 @@ import { DB } from "./data.js";
 import { Game } from "./game.js";
 import { Assets } from "./assets.js";
 import { Voice } from "./voice.js";
+import { Bgm } from "./bgm.js";
 import { wait } from "./util.js";
 
 import * as title from "./screens/title.js";
@@ -67,14 +68,15 @@ async function router(name, params) {
 }
 
 // 最初の タッチで 音を 使えるようにする（iPhone 対策）
-window.addEventListener("pointerdown", () => Voice.unlock(), { once: true });
+window.addEventListener("pointerdown", () => { Voice.unlock(); Bgm.unlock(); }, { once: true });
 
 // ---------- 起動 ----------
 (async () => {
   try {
     await Promise.all([DB.load(), Assets.init()]);
     Game.init(router);
-    window.YQ = { Game, DB, Assets }; // 動作確認用（ブラウザの コンソールから さわれる）
+    await Promise.race([warmUp(), wait(4000)]);
+    window.YQ = { Game, DB, Assets, Bgm }; // 動作確認用（ブラウザの コンソールから さわれる）
     await show("title", {});
     document.getElementById("boot").remove();
   } catch (e) {
@@ -82,3 +84,26 @@ window.addEventListener("pointerdown", () => Voice.unlock(), { once: true });
     document.getElementById("boot").textContent = "よみこみに しっぱいしました。サーバー（Netlify など）で ひらいてね。";
   }
 })();
+
+/** よく使う 画像を 先に 調べて、画面に 仮素材が ちらつかないように する */
+function warmUp() {
+  const p = [];
+  const colors = (DB.heroes.colors || []).map((c) => c.id);
+  for (const g of ["boy", "girl"]) {
+    p.push(["characters", `hero_${g}`], ["characters", `face_hero_${g}`], ["characters", `walk_${g}`]);
+    for (const c of colors) {
+      p.push(["characters", `hero_${g}_${c}`], ["characters", `face_hero_${g}_${c}`], ["characters", `walk_${g}_${c}_down_1`]);
+    }
+    for (const j of DB.jobs) p.push(["characters", `job_${j.id}_${g}`]);
+  }
+  for (const j of DB.jobs) p.push(["characters", `job_${j.id}`]);
+  for (const sp of Object.values(DB.speakers)) if (sp.visual) p.push(["characters", sp.visual], ["characters", "face_" + sp.visual]);
+  for (const id of Object.keys(DB.monsters)) p.push(["monsters", id], ["monsters", "battle_" + id]);
+  for (const id of ["title", "yard_ch1", "battle_ch1", "battle_yard", "doors", "clear", "ending"]) p.push(["backgrounds", id]);
+  for (const id of ["heart_full", "heart_empty", "chest", "chest_open", "bubble", "shadow", "tap_marker", "logo", "stamp", "kakera_1"]) p.push(["ui", id]);
+  for (const ic of ["play", "continue", "next", "back", "check", "cross", "speaker", "speaker_off", "book", "save", "home", "erase", "special", "door", "star",
+    "aisatsu", "katazuke", "itadakimasu", "hayaoki", "nakanaori"]) p.push(["ui", "icon_" + ic]);
+  for (const c of DB.cards) p.push(["cards", c.id]);
+  p.push(["cards", "card_back"]);
+  return Assets.warm(p);
+}

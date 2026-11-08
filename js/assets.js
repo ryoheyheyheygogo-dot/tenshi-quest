@@ -49,24 +49,37 @@ export const Assets = {
     const box = el("div", { cls: "vis" });
     box.style.width = w + "px";
     box.style.height = h + "px";
-    box.innerHTML = artSvg(kind, color);
-    const list = Array.isArray(ids) ? ids : [ids];
-    if (this.showPlaceholderNames && list.length) {
-      const tag = el("div", { cls: "label", text: `${category}/${list[0]}`, parent: box });
-      Object.assign(tag.style, { left: 0, right: 0, bottom: 0, height: "22px", fontSize: "14px", color: "#fff", background: "rgba(0,0,0,.45)" });
+    const list = (Array.isArray(ids) ? ids : [ids]).filter(Boolean);
+    const showImg = (url) => { box.innerHTML = ""; el("img", { parent: box }).src = url; };
+    const showArt = () => {
+      box.innerHTML = artSvg(kind, color);
+      if (this.showPlaceholderNames && list.length) {
+        const tag = el("div", { cls: "label", text: `${category}/${list[0]}`, parent: box });
+        Object.assign(tag.style, { left: 0, right: 0, bottom: 0, height: "22px", fontSize: "14px", color: "#fff", background: "rgba(0,0,0,.45)" });
+      }
+    };
+    // すでに 調べてある ものは すぐ 表示（仮素材が 一瞬 見えるのを ふせぐ）
+    let pending = false;
+    for (const id of list) {
+      const v = found.get(`${category}/${id}`);
+      if (v === undefined || v instanceof Promise) { pending = true; break; }
+      if (v) { showImg(v); return box; }
     }
+    if (!pending) { showArt(); return box; }
+    // まだ わからないときは 何も出さずに 待ち、画像が なければ 仮素材
     (async () => {
       for (const id of list) {
-        if (!id) continue;
         const url = await this.findImage(category, id);
-        if (url) {
-          box.innerHTML = "";
-          el("img", { parent: box }).src = url;
-          return;
-        }
+        if (url) { showImg(url); return; }
       }
+      showArt();
     })();
     return box;
+  },
+
+  /** よく使う 画像を 先に 調べておく（起動時） */
+  warm(pairs) {
+    return Promise.all(pairs.map(([c, id]) => this.findImage(c, id)));
   },
 
   icon(name, size, color = "#ffffff") {
