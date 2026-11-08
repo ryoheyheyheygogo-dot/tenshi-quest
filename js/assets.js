@@ -2,10 +2,11 @@
 // assets/<しゅるい>/<ID>.png があれば それを使い、なければ 仮素材（art.js）を 描く。
 // → 画像は ファイルを置くだけで 差し替わる。
 
-import { artSvg } from "./art.js";
-import { el } from "./util.js";
+import { artSvg } from "./art.js?v=20261108231158";
+import { el } from "./util.js?v=20261108231158";
+import { VERSION } from "./version.js?v=20261108231158";
 
-// manifest.json が あるときは すべての形式を、ないときは png と mp3 だけを さがす（ムダな通信を へらす）
+// manifest.json が あるときは その一覧どおりに、ないときは png → webp、mp3 だけを さがす（ムダな通信を へらす）
 const IMAGE_EXTS_ALL = ["png", "webp", "jpg"];
 const AUDIO_EXTS_ALL = ["mp3", "m4a", "ogg", "wav"];
 const found = new Map(); // "category/id" -> url | null | Promise
@@ -19,7 +20,7 @@ export const Assets = {
 
   async init() {
     try {
-      const res = await fetch("assets/manifest.json", { cache: "no-cache" });
+      const res = await fetch(`assets/manifest.json?v=${VERSION}`, { cache: "no-cache" });
       if (res.ok) manifest = new Set((await res.json()).files || []);
     } catch (e) { manifest = null; }
   },
@@ -29,8 +30,8 @@ export const Assets = {
     const key = `${category}/${id}`;
     if (found.has(key)) return found.get(key);
     const p = (async () => {
-      for (const ext of manifest ? IMAGE_EXTS_ALL : ["png"]) {
-        const url = `assets/${category}/${id}.${ext}`;
+      for (const ext of manifest ? IMAGE_EXTS_ALL : ["png", "webp"]) {
+        const url = `assets/${category}/${id}.${ext}?v=${VERSION}`;
         if (manifest && !manifest.has(`${category}/${id}.${ext}`)) continue;
         if (await probeImage(url)) return url;
       }
@@ -94,7 +95,7 @@ export const Assets = {
     const p = (async () => {
       for (const ext of manifest ? AUDIO_EXTS_ALL : ["mp3"]) {
         if (manifest && !manifest.has(`${folder}/${id}.${ext}`)) continue;
-        const url = `assets/${folder}/${id}.${ext}`;
+        const url = `assets/${folder}/${id}.${ext}?v=${VERSION}`;
         try {
           const res = await fetch(url, { method: "HEAD" });
           if (res.ok && !(res.headers.get("content-type") || "").includes("text/html")) return url;

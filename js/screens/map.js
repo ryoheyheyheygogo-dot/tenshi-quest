@@ -1,12 +1,12 @@
 // えんてい（探索マップ）。タッチした ところへ あるく。
 // 人や モンスターを タッチすると そこまで あるいて はなしかける。
 // 何が おきるかは data/chapters/chapterN.json の "events" で きめる。
-import { Assets } from "../assets.js";
-import { DB } from "../data.js";
-import { Game } from "../game.js";
-import { Voice } from "../voice.js";
-import { el, place, anim, stagePoint } from "../util.js";
-import { label, button, panel, toast, dialogue, cardPopup } from "../ui.js";
+import { Assets } from "../assets.js?v=20261108231158";
+import { DB } from "../data.js?v=20261108231158";
+import { Game } from "../game.js?v=20261108231158";
+import { Voice } from "../voice.js?v=20261108231158";
+import { el, place, anim, stagePoint } from "../util.js?v=20261108231158";
+import { label, button, panel, toast, dialogue, cardPopup } from "../ui.js?v=20261108231158";
 
 const PLAYER_W = 110, PLAYER_H = 130;
 const WALK_SPEED = 380; // px / 秒

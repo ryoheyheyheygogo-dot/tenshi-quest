@@ -2,14 +2,14 @@
 // ・あう コマンド → ハートが たくさん / ほかの コマンド → すこし（かならず かてる）
 // ・ひっさつわざ → 1かいだけ。ハートが たくさん
 // ・ハートが いっぱいで なかよし 成功
-import { Assets } from "../assets.js";
-import { DB } from "../data.js";
-import { Game } from "../game.js";
-import { Voice } from "../voice.js";
-import { el, place, anim } from "../util.js";
-import { label, button, panel, HeartGauge } from "../ui.js";
-import { Effects } from "../effects.js";
-import { Bgm } from "../bgm.js";
+import { Assets } from "../assets.js?v=20261108231158";
+import { DB } from "../data.js?v=20261108231158";
+import { Game } from "../game.js?v=20261108231158";
+import { Voice } from "../voice.js?v=20261108231158";
+import { el, place, anim } from "../util.js?v=20261108231158";
+import { label, button, panel, HeartGauge } from "../ui.js?v=20261108231158";
+import { Effects } from "../effects.js?v=20261108231158";
+import { Bgm } from "../bgm.js?v=20261108231158";
 
 const MW = 340, MH = 340, MX = 470, MY = 40;
 const TARGET = { x: MX + MW / 2, y: MY + MH / 2 };
@@ -147,7 +147,7 @@ export async function build(root, params) {
     jump();
     await fx.friendSuccess(TARGET.x, TARGET.y);
     await say(m.friend || "なかよしに なった！", voice("friend"));
-    await say(`${m.name}は なかまに なりたそうに こちらを みている！`, voice("join"));
+    await say(`${m.name}が なかよしの ハートを くれた！`, voice("join"));
     Game.setFlag("friend_" + id);
     const isNew = Game.addCard(m.card);
     Game.save();

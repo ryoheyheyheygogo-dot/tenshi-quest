@@ -1,10 +1,10 @@
 // エンディング：4つの かけらで おいわいの きに はなが さく
-import { Assets } from "../assets.js";
-import { DB } from "../data.js";
-import { Game } from "../game.js";
-import { Voice } from "../voice.js";
-import { el, place, anim, wait, rand } from "../util.js";
-import { label, button, dialogue } from "../ui.js";
+import { Assets } from "../assets.js?v=20261108231158";
+import { DB } from "../data.js?v=20261108231158";
+import { Game } from "../game.js?v=20261108231158";
+import { Voice } from "../voice.js?v=20261108231158";
+import { el, place, anim, wait, rand } from "../util.js?v=20261108231158";
+import { label, button, dialogue } from "../ui.js?v=20261108231158";
 
 export async function build(root) {
   let alive = true;

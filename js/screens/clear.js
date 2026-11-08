@@ -1,10 +1,10 @@
 // じだい（章）クリア がめん
-import { Assets } from "../assets.js";
-import { DB } from "../data.js";
-import { Game } from "../game.js";
-import { Voice } from "../voice.js";
-import { el, place } from "../util.js";
-import { label, button } from "../ui.js";
+import { Assets } from "../assets.js?v=20261108231158";
+import { DB } from "../data.js?v=20261108231158";
+import { Game } from "../game.js?v=20261108231158";
+import { Voice } from "../voice.js?v=20261108231158";
+import { el, place } from "../util.js?v=20261108231158";
+import { label, button } from "../ui.js?v=20261108231158";
 
 export async function build(root) {
   const n = Game.chapterNumber();
@@ -37,7 +37,12 @@ export async function build(root) {
   }
   next.classList.add("wiggle");
 
+  // クリアの 音と 読み上げは はじめて 見たときの 1回だけ
+  const seen = `ch${n}_clear_seen`;
+  const first = !Game.hasFlag(seen);
+  Game.setFlag(seen);
   Game.save();
+  if (!first) return;
   Assets.sound("clear");
   Voice.speak(`${ch.title || ""} クリア！ ${text.replace("\n", " ")}`, `system/chapter_clear_${n}`);
 }

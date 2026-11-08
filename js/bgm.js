@@ -2,9 +2,9 @@
 // ※ iPhone は プログラムから 音量を 変えられないため、曲の ファイル自体を 小さめの 音量で 作ってある。
 //    もっと 小さく／大きく したいときは data/commands.json の "bgm_volume"（PC・Android のみ有効）か、ファイルを 作り直す。
 
-import { Assets } from "./assets.js";
-import { Game } from "./game.js";
-import { SILENT } from "./voice.js";
+import { Assets } from "./assets.js?v=20261108231158";
+import { Game } from "./game.js?v=20261108231158";
+import { SILENT } from "./voice.js?v=20261108231158";
 
 const audio = new Audio();
 audio.loop = true;

@@ -1,7 +1,8 @@
 // ゲームデータ（data/*.json）を 読み込む。文章や モンスターは JSON を 直せば 変わる。
+import { VERSION } from "./version.js?v=20261108231158";
 
 async function loadJson(path) {
-  const res = await fetch(path, { cache: "no-cache" });
+  const res = await fetch(`${path}?v=${VERSION}`, { cache: "no-cache" });
   if (!res.ok) throw new Error("データを よみこめませんでした: " + path);
   return res.json();
 }

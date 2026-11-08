@@ -16,7 +16,7 @@
 
 ## 共通ルール
 
-- 形式：PNG（背景以外は **背景透明**）。Netlify の自動デプロイ（GitHub連携）なら webp / jpg も読めます
+- 形式：PNG（背景以外は **背景透明**）。背景・大きな絵は WebP / JPG でも OK（`tools/bump_version.py` を実行すると 自動で 一覧に のります）
 - ファイル名：下の表の「ID」＋ `.png`（例：`assets/monsters/sukikirai.png`）
 - 画面サイズは 1280×720（横画面）。表の「表示サイズ」はゲーム内で表示される大きさです
 - 画像は表示サイズの **2倍** で作ると、タブレットでもくっきりします（縦横比は合わせる）
@@ -56,7 +56,7 @@
 | job_senshi / job_mahou / job_souryo | 220×220 | 職業えらびの絵。男女別にするなら `job_senshi_boy` `job_senshi_girl` |
 | encho | 120×150 | マップの園長先生（正面・全身） |
 | face_encho | 190×190 | 会話ウィンドウの園長先生の顔 |
-| sempai / face_sempai | 120×150 / 190×190 | 平成：そつえんせいの おにいさん |
+| sempai / face_sempai | 120×150 / 190×190 | 平成：へいせいの せんせい |
 | kodomo / face_kodomo | 120×150 / 190×190 | 昭和：しょうわの こども（むかしの服） |
 | founder / face_founder | 120×150 / 190×190 | はじまり：ようちえんを つくった ひと |
 
@@ -71,9 +71,9 @@
 | onebou（+ battle_） | 同上 | 平成：おねぼけゴースト（はやおき） |
 | dokidoki（+ battle_） | 同上 | 平成：ドキドキライオン（あいさつ） |
 | hokorin（+ battle_） | 同上 | 昭和：ほこりんぼ（かたづけ） |
-| kenka（+ battle_） | 同上 | 昭和：けんかばちドラゴン（なかなおり） |
+| kenka（+ battle_） | 同上 | 昭和：ぷんぷんバイキン（なかなおり） |
 | hazukashi（+ battle_） | 同上 | はじまり：はずかしがりプラント（あいさつ） |
-| harapeko（+ battle_） | 同上 | はじまり：はらぺこスズメ（いただきます） |
+| harapeko（+ battle_） | 同上 | はじまり：はらぺこミルク（いただきます） |
 
 ## assets/ui/（ボタン・アイコンなど）
 
@@ -175,7 +175,7 @@
 | monster/sukikirai_action2 | すききらいモンスターは ぷいっと そっぽを むいた！ |
 | monster/sukikirai_action3 | すききらいモンスターは にんじんを じーっと みている… |
 | monster/sukikirai_friend | すききらいモンスターと なかよしに なった！ |
-| monster/sukikirai_join | すききらいモンスターは なかまに なりたそうに こちらを みている！ |
+| monster/sukikirai_join | すききらいモンスターが なかよしの ハートを くれた！ |
 | monster/chirakari_appear | ちらかりレッドが あらわれた！ |
 | monster/chirakari_good | 「かたづけたら きもちいい〜！」 |
 | monster/chirakari_normal | ちらかりレッドは ちょっと にこにこ した。 |
@@ -183,7 +183,7 @@
 | monster/chirakari_action2 | ちらかりレッドは えほんを ひろげっぱなしに した！ |
 | monster/chirakari_action3 | ちらかりレッドは くるくる まわっている！ |
 | monster/chirakari_friend | ちらかりレッドと なかよしに なった！ |
-| monster/chirakari_join | ちらかりレッドは なかまに なりたそうに こちらを みている！ |
+| monster/chirakari_join | ちらかりレッドが なかよしの ハートを くれた！ |
 | command/aisatsu | {name}は げんきに 「おはよう！」と いった！（{name}は 主人公の名前） |
 | command/katazuke | {name}は おもちゃを ぴかぴかに かたづけた！（{name}は 主人公の名前） |
 | command/itadakimasu | {name}は 「いただきます！」と ぱくっと たべた！（{name}は 主人公の名前） |

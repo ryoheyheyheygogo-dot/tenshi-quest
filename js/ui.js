@@ -1,11 +1,11 @@
 // 共通の UI 部品（大きなボタン・会話ウィンドウ・カード・キーボード・ハート）
 
-import { Assets } from "./assets.js";
-import { DB } from "./data.js";
-import { Game } from "./game.js";
-import { Voice } from "./voice.js";
-import { el, place, anim, wait } from "./util.js";
-import { shadeColor } from "./color.js";
+import { Assets } from "./assets.js?v=20261108231158";
+import { DB } from "./data.js?v=20261108231158";
+import { Game } from "./game.js?v=20261108231158";
+import { Voice } from "./voice.js?v=20261108231158";
+import { el, place, anim, wait } from "./util.js?v=20261108231158";
+import { shadeColor } from "./color.js?v=20261108231158";
 
 export const INK = "#3a2e2a";
 
@@ -202,7 +202,7 @@ export function cardPopup(parent, cardId, isNew) {
 const COLUMNS = [
   ["あ", "い", "う", "え", "お"], ["か", "き", "く", "け", "こ"], ["さ", "し", "す", "せ", "そ"], ["た", "ち", "つ", "て", "と"],
   ["な", "に", "ぬ", "ね", "の"], ["は", "ひ", "ふ", "へ", "ほ"], ["ま", "み", "む", "め", "も"], ["や", "", "ゆ", "", "よ"],
-  ["ら", "り", "る", "れ", "ろ"], ["わ", "", "を", "", "ん"], ["゛", "゜", "小", "ー", ""],
+  ["ら", "り", "る", "れ", "ろ"], ["わ", "", "を", "", "ん"], ["゛", "゜", "ちいさい", "ー", ""],
 ];
 const KEY_COLORS = ["#ff8a80", "#ffab40", "#f9c623", "#8bd650", "#4fd99a", "#33b5f0", "#7c4dff", "#ff80ab", "#d36ef0", "#6f9cff", "#a1887f"];
 
@@ -211,7 +211,7 @@ export function keyboard(parent, x0, y0, onKey) {
   COLUMNS.forEach((col, c) => {
     col.forEach((ch, r) => {
       if (!ch) return;
-      button(parent, ch, { x: x0 + c * (KW + GAP), y: y0 + r * (KH + GAP), w: KW, h: KH, color: shadeColor(KEY_COLORS[c], -0.08), size: 44, onClick: () => onKey(ch) });
+      button(parent, ch, { x: x0 + c * (KW + GAP), y: y0 + r * (KH + GAP), w: KW, h: KH, color: shadeColor(KEY_COLORS[c], -0.08), size: ch.length > 1 ? 18 : 44, onClick: () => onKey(ch) });
     });
   });
 }
@@ -220,7 +220,7 @@ const DAKUTEN = { か: "が", き: "ぎ", く: "ぐ", け: "げ", こ: "ご", �
 const HANDAKUTEN = { は: "ぱ", ひ: "ぴ", ふ: "ぷ", へ: "ぺ", ほ: "ぽ" };
 const SMALL = { あ: "ぁ", い: "ぃ", う: "ぅ", え: "ぇ", お: "ぉ", つ: "っ", や: "ゃ", ゆ: "ゅ", よ: "ょ", わ: "ゎ" };
 
-/** 最後の文字に ゛゜小 を つけたり はずしたり */
+/** 最後の文字に ゛゜ちいさい を つけたり はずしたり */
 export function applyModifier(text, mod) {
   if (!text) return text;
   const last = text.slice(-1);

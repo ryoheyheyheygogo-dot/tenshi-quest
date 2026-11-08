@@ -1,22 +1,22 @@
 // はじまり：データを読み込み、画面を 切り替える係
 
-import { DB } from "./data.js";
-import { Game } from "./game.js";
-import { Assets } from "./assets.js";
-import { Voice } from "./voice.js";
-import { Bgm } from "./bgm.js";
-import { wait } from "./util.js";
+import { DB } from "./data.js?v=20261108231158";
+import { Game } from "./game.js?v=20261108231158";
+import { Assets } from "./assets.js?v=20261108231158";
+import { Voice } from "./voice.js?v=20261108231158";
+import { Bgm } from "./bgm.js?v=20261108231158";
+import { wait } from "./util.js?v=20261108231158";
 
-import * as title from "./screens/title.js";
-import * as hero from "./screens/hero.js";
-import * as nameScreen from "./screens/name.js";
-import * as job from "./screens/job.js";
-import * as map from "./screens/map.js";
-import * as battle from "./screens/battle.js";
-import * as zukan from "./screens/zukan.js";
-import * as clear from "./screens/clear.js";
-import * as doors from "./screens/doors.js";
-import * as ending from "./screens/ending.js";
+import * as title from "./screens/title.js?v=20261108231158";
+import * as hero from "./screens/hero.js?v=20261108231158";
+import * as nameScreen from "./screens/name.js?v=20261108231158";
+import * as job from "./screens/job.js?v=20261108231158";
+import * as map from "./screens/map.js?v=20261108231158";
+import * as battle from "./screens/battle.js?v=20261108231158";
+import * as zukan from "./screens/zukan.js?v=20261108231158";
+import * as clear from "./screens/clear.js?v=20261108231158";
+import * as doors from "./screens/doors.js?v=20261108231158";
+import * as ending from "./screens/ending.js?v=20261108231158";
 
 const SCREENS = { title, hero, name: nameScreen, job, map, battle, zukan, chapter_clear: clear, doors, ending };
 

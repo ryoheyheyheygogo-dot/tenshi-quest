@@ -1,10 +1,10 @@
 // なまえを いれる（ひらがな 4もじまで）
-import { Assets } from "../assets.js";
-import { DB } from "../data.js";
-import { Game } from "../game.js";
-import { Voice } from "../voice.js";
-import { el, place } from "../util.js";
-import { label, button, panel, keyboard, applyModifier } from "../ui.js";
+import { Assets } from "../assets.js?v=20261108231158";
+import { DB } from "../data.js?v=20261108231158";
+import { Game } from "../game.js?v=20261108231158";
+import { Voice } from "../voice.js?v=20261108231158";
+import { el, place } from "../util.js?v=20261108231158";
+import { label, button, panel, keyboard, applyModifier } from "../ui.js?v=20261108231158";
 
 export function build(root) {
   const max = DB.heroes.max_name_length || 4;
@@ -25,7 +25,7 @@ export function build(root) {
   const refresh = () => slots.forEach((s, i) => (s.textContent = name[i] || ""));
 
   keyboard(root, 20, 250, (ch) => {
-    if (ch === "゛" || ch === "゜" || ch === "小") name = applyModifier(name, ch);
+    if (ch === "゛" || ch === "゜" || ch === "ちいさい") name = applyModifier(name, ch);
     else if ([...name].length < max) name += ch;
     refresh();
     Voice.speak(name);
