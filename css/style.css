@@ -78,7 +78,7 @@ html, body {
 .btn .ic { position: relative; flex: none; pointer-events: none; }
 .btn .tx { pointer-events: none; line-height: 1.15; white-space: nowrap; }
 .btn.white { color: #3a2e2a; }
-.btn.selected { border-width: 10px; }
+.btn.selected { box-shadow: 0 0 0 6px #fff, 0 0 0 10px var(--sel, #ff8a65), 0 6px 10px rgba(0,0,0,.25); } /* わくを ふとくしない（中の絵が ずれない） */
 
 .dim { position: absolute; inset: 0; background: rgba(26, 20, 38, .58); }
 
@@ -97,3 +97,5 @@ html, body {
 .layer { position: absolute; inset: 0; isolation: isolate; pointer-events: none; }
 .obj { position: absolute; pointer-events: auto; cursor: pointer; }
 .hud { z-index: 10; }
+
+.job-art img { object-position: var(--pos, center bottom); }

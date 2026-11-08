@@ -1,6 +1,6 @@
 {
   "default_name": "ゆうしゃ",
-  "max_name_length": 4,
+  "max_name_length": 5,
   "genders": [
     {
       "id": "boy",

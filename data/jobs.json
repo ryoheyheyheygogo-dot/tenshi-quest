@@ -8,7 +8,8 @@
       "special_effect": "fukufuku_punch",
       "special_power": 5,
       "description": "ちからもちの せんし。ひっさつわざは ふくの グローブで れんだする ふくふくパンチ！",
-      "special_line": "{name}の ひっさつわざ！ ふくふくパンチ！"
+      "special_line": "{name}の ひっさつわざ！ ふくふくパンチ！",
+      "art_align": "left bottom"
     },
     {
       "id": "mahou",
@@ -18,7 +19,8 @@
       "special_effect": "tower_beam",
       "special_power": 5,
       "description": "ふしぎな まほうつかい。ひっさつわざは かいきょうゆめタワーから キラキラの ビーム！",
-      "special_line": "{name}の ひっさつわざ！ かいきょうゆめタワービーム！"
+      "special_line": "{name}の ひっさつわざ！ かいきょうゆめタワービーム！",
+      "art_align": "center bottom"
     },
     {
       "id": "souryo",
@@ -28,7 +30,8 @@
       "special_effect": "penguin_parade",
       "special_power": 5,
       "description": "やさしい そうりょ。ひっさつわざは かいきょうかんの ペンギンが ぞろぞろ こうしんする ヒール！",
-      "special_line": "{name}の ひっさつわざ！ ペンギン ぞろぞろ ヒール！"
+      "special_line": "{name}の ひっさつわざ！ ペンギン ぞろぞろ ヒール！",
+      "art_align": "center bottom"
     }
   ]
 }

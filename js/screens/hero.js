@@ -34,12 +34,33 @@ export function build(root) {
 
   button(root, "つぎへ", { x: 1030, y: 560, w: 220, h: 130, color: "#4db6ac", size: 36, icon: "next", iconSize: 64, onClick: () => Game.goto("name") });
 
+  // 絵は 1まいの img を 使いまわし、つぎの絵を 読みおえてから 入れかえる（ちらつき・乱れ ふせぎ）
+  const swap = async (holder, gid, kind, colorId) => {
+    const ids = [`hero_${gid}_${colorId}`, `hero_${gid}`];
+    let url = null;
+    for (const id of ids) { url = await Assets.findImage("characters", id); if (url) break; }
+    if (!url) {
+      holder.innerHTML = "";
+      holder.appendChild(Assets.visual("characters", ids, 260, 264, kind, Game.heroColor()));
+      return;
+    }
+    let img = holder.querySelector("img.hero-img");
+    if (img && img.getAttribute("src") === url) return;
+    const next = new Image();
+    next.src = url;
+    try { await next.decode(); } catch (e) { /* そのまま */ }
+    if (!img) {
+      holder.innerHTML = "";
+      img = el("img", { cls: "hero-img", parent: holder, style: { width: "100%", height: "100%", objectFit: "contain", imageRendering: "pixelated", display: "block" } });
+    }
+    img.src = url;
+  };
+
   function refresh() {
     const gender = Game.heroGender();
     const colorId = Game.heroColorId();
     for (const [gid, info] of Object.entries(cards)) {
-      info.holder.innerHTML = "";
-      info.holder.appendChild(Assets.visual("characters", [`hero_${gid}_${colorId}`, `hero_${gid}`], 280, 280, info.kind, Game.heroColor()));
+      swap(info.holder, gid, info.kind, colorId);
       const on = gid === gender;
       info.b.style.background = on ? "#fff59d" : "#ffffff";
       info.b.style.borderColor = on ? "#ff8a65" : "#d7ccc8";
@@ -49,6 +70,7 @@ export function build(root) {
       const c = DB.heroes.colors.find((x) => x.id === cid);
       b.querySelector(".tx").textContent = (cid === colorId ? "★ " : "") + c.label;
       b.classList.toggle("selected", cid === colorId);
+      b.style.setProperty("--sel", c.color);
     }
   }
   refresh();

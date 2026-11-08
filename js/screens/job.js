@@ -17,9 +17,15 @@ export function build(root) {
   DB.jobs.forEach((j, i) => {
     const col = j.color || "#ff8a65";
     const b = button(root, "", { x: 40 + i * 410, y: 100, w: 380, h: 460, color: "#ffffff", onClick: () => select(j.id) });
-    const art = Assets.visual("characters", [`job_${j.id}_${g}`, `job_${j.id}`], 220, 220, `hero_${g}`, col);
-    place(art, 76, 16);
-    b.appendChild(art);
+    // 絵は まどの 中に（画像の はしが きれていても まどの ふちに そろえて 自然に 見せる）
+    const win = el("div", { cls: "abs", parent: b });
+    place(win, 56, 14, 260, 222);
+    Object.assign(win.style, { overflow: "hidden", borderRadius: "18px", background: shadeColor(col, 0.82), border: `4px solid ${shadeColor(col, 0.5)}`, pointerEvents: "none" });
+    const art = Assets.visual("characters", [`job_${j.id}_${g}`, `job_${j.id}`], 230, 206, `hero_${g}`, col);
+    place(art, j.art_align && j.art_align.startsWith("left") ? 0 : 11, 8);
+    art.classList.add("job-art");
+    art.style.setProperty("--pos", j.art_align || "center bottom");
+    win.appendChild(art);
     label(b, j.name, { x: 0, y: 240, w: 372, h: 70, size: 48, color: "#fff", outline: shadeColor(col, -0.2), outlineWidth: 4 });
     const ic = Assets.icon("special", 50);
     place(ic, 16, 330);
