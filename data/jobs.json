@@ -15,11 +15,11 @@
       "id": "mahou",
       "name": "まほうつかい",
       "color": "#7a5cff",
-      "special": "かいきょうゆめタワービーム",
+      "special": "かいきょうゆめタワースターライト",
       "special_effect": "tower_beam",
       "special_power": 5,
-      "description": "ふしぎな まほうつかい。ひっさつわざは かいきょうゆめタワーから キラキラの ビーム！",
-      "special_line": "{name}の ひっさつわざ！ かいきょうゆめタワービーム！",
+      "description": "ふしぎな まほうつかい。ひっさつわざは かいきょうゆめタワーから キラキラの ひかりを とどける スターライト！",
+      "special_line": "{name}の ひっさつわざ！ かいきょうゆめタワースターライト！",
       "art_align": "center bottom"
     },
     {

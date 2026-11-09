@@ -1,11 +1,11 @@
 // しょくぎょう えらび（せんし・まほうつかい・そうりょ）
-import { Assets } from "../assets.js?v=20261109115231";
-import { DB } from "../data.js?v=20261109115231";
-import { Game } from "../game.js?v=20261109115231";
-import { Voice } from "../voice.js?v=20261109115231";
-import { el, place } from "../util.js?v=20261109115231";
-import { label, button } from "../ui.js?v=20261109115231";
-import { shadeColor } from "../color.js?v=20261109115231";
+import { Assets } from "../assets.js?v=20261109201037";
+import { DB } from "../data.js?v=20261109201037";
+import { Game } from "../game.js?v=20261109201037";
+import { Voice } from "../voice.js?v=20261109201037";
+import { el, place } from "../util.js?v=20261109201037";
+import { label, button } from "../ui.js?v=20261109201037";
+import { shadeColor } from "../color.js?v=20261109201037";
 
 export function build(root) {
   el("div", { cls: "fill", parent: root, style: { background: "linear-gradient(#22356f, #142352)" } });

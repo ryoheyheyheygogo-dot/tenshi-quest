@@ -1,11 +1,11 @@
 // 共通の UI 部品（大きなボタン・会話ウィンドウ・カード・キーボード・ハート）
 
-import { Assets } from "./assets.js?v=20261109115231";
-import { DB } from "./data.js?v=20261109115231";
-import { Game } from "./game.js?v=20261109115231";
-import { Voice } from "./voice.js?v=20261109115231";
-import { el, place, anim, wait } from "./util.js?v=20261109115231";
-import { shadeColor } from "./color.js?v=20261109115231";
+import { Assets } from "./assets.js?v=20261109201037";
+import { DB } from "./data.js?v=20261109201037";
+import { Game } from "./game.js?v=20261109201037";
+import { Voice } from "./voice.js?v=20261109201037";
+import { el, place, anim, wait } from "./util.js?v=20261109201037";
+import { shadeColor } from "./color.js?v=20261109201037";
 
 export const INK = "#3a2e2a";
 
@@ -70,8 +70,8 @@ export function popIn(e, delay = 0) {
 }
 
 export function toast(parent, text) {
-  const t = label(parent, text, { x: 0, y: 300, w: 1280, h: 80, size: 44, color: "#fff", outline: "#ff7a7a", outlineWidth: 4 });
-  t.style.zIndex = 50;
+  const t = label(parent, text, { x: 240, y: 300, w: 800, h: 90, size: 44, color: "#fff", outline: "#ff7a7a", outlineWidth: 4 });
+  Object.assign(t.style, { zIndex: 50, background: "rgba(40,30,60,.72)", borderRadius: "45px" });
   anim(t, [{ transform: "translateY(0)", opacity: 1 }, { transform: "translateY(-40px)", opacity: 1, offset: 0.2 }, { transform: "translateY(-40px)", opacity: 1, offset: 0.8 }, { transform: "translateY(-40px)", opacity: 0 }], 1700)
     .then(() => t.remove());
 }

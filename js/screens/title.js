@@ -1,9 +1,9 @@
 // タイトル画面
-import { Assets } from "../assets.js?v=20261109115231";
-import { Game } from "../game.js?v=20261109115231";
-import { Voice } from "../voice.js?v=20261109115231";
-import { place, el } from "../util.js?v=20261109115231";
-import { label, button, panel, dim, toast } from "../ui.js?v=20261109115231";
+import { Assets } from "../assets.js?v=20261109201037";
+import { Game } from "../game.js?v=20261109201037";
+import { Voice } from "../voice.js?v=20261109201037";
+import { place, el } from "../util.js?v=20261109201037";
+import { label, button, panel, dim, toast } from "../ui.js?v=20261109201037";
 
 export async function build(root) {
   const bg = Assets.visual("backgrounds", "title", 1280, 720, "bg_title");

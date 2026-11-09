@@ -2,9 +2,9 @@
 // assets/<しゅるい>/<ID>.png があれば それを使い、なければ 仮素材（art.js）を 描く。
 // → 画像は ファイルを置くだけで 差し替わる。
 
-import { artSvg } from "./art.js?v=20261109115231";
-import { el } from "./util.js?v=20261109115231";
-import { VERSION } from "./version.js?v=20261109115231";
+import { artSvg } from "./art.js?v=20261109201037";
+import { el } from "./util.js?v=20261109201037";
+import { VERSION } from "./version.js?v=20261109201037";
 
 // manifest.json が あるときは その一覧どおりに、ないときは png → webp、mp3 だけを さがす（ムダな通信を へらす）
 const IMAGE_EXTS_ALL = ["png", "webp", "jpg"];

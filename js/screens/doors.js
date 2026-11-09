@@ -1,11 +1,11 @@
 // ときの とびら（スタンプカード）
 // すきな じだいを えらんで とびらを くぐる。クリアした じだいには スタンプ。
-import { Assets } from "../assets.js?v=20261109115231";
-import { DB } from "../data.js?v=20261109115231";
-import { Game } from "../game.js?v=20261109115231";
-import { Voice } from "../voice.js?v=20261109115231";
-import { el, place, anim } from "../util.js?v=20261109115231";
-import { label, button, toast, dialogue } from "../ui.js?v=20261109115231";
+import { Assets } from "../assets.js?v=20261109201037";
+import { DB } from "../data.js?v=20261109201037";
+import { Game } from "../game.js?v=20261109201037";
+import { Voice } from "../voice.js?v=20261109201037";
+import { el, place, anim } from "../util.js?v=20261109201037";
+import { label, button, toast, dialogue } from "../ui.js?v=20261109201037";
 
 export async function build(root, params) {
   // assets/backgrounds/doors.png（試作）は 絵の中に とびらが 4つ 描かれていて、タッチできる とびら（door_ch1〜4）と

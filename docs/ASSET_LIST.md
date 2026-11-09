@@ -202,7 +202,7 @@
 | command/hayaoki | {name}は めざましを ジリリリと ならした！（{name}は 主人公の名前） |
 | command/nakanaori | {name}は 「ごめんね」「いいよ」と てを つないだ！（{name}は 主人公の名前） |
 | special/senshi | {name}の ひっさつわざ！ ふくふくパンチ！ |
-| special/mahou | {name}の ひっさつわざ！ かいきょうゆめタワービーム！ |
+| special/mahou | {name}の ひっさつわざ！ かいきょうゆめタワースターライト！ |
 | special/souryo | {name}の ひっさつわざ！ ペンギン ぞろぞろ ヒール！ |
 | card/card_ima | いまの ようちえん。てんし ようちえんは ことしで 75さい。みんなの えがおで いっぱいだよ。 |
 | card/card_asobiba | えんていの あそびば。すべりだいや すなば。えんていは みんなの だいすきな ばしょ。 |

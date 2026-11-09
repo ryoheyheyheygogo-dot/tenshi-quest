@@ -1,22 +1,22 @@
 // はじまり：データを読み込み、画面を 切り替える係
 
-import { DB } from "./data.js?v=20261109115231";
-import { Game } from "./game.js?v=20261109115231";
-import { Assets } from "./assets.js?v=20261109115231";
-import { Voice } from "./voice.js?v=20261109115231";
-import { Bgm } from "./bgm.js?v=20261109115231";
-import { wait } from "./util.js?v=20261109115231";
+import { DB } from "./data.js?v=20261109201037";
+import { Game } from "./game.js?v=20261109201037";
+import { Assets } from "./assets.js?v=20261109201037";
+import { Voice } from "./voice.js?v=20261109201037";
+import { Bgm } from "./bgm.js?v=20261109201037";
+import { wait } from "./util.js?v=20261109201037";
 
-import * as title from "./screens/title.js?v=20261109115231";
-import * as hero from "./screens/hero.js?v=20261109115231";
-import * as nameScreen from "./screens/name.js?v=20261109115231";
-import * as job from "./screens/job.js?v=20261109115231";
-import * as map from "./screens/map.js?v=20261109115231";
-import * as battle from "./screens/battle.js?v=20261109115231";
-import * as zukan from "./screens/zukan.js?v=20261109115231";
-import * as clear from "./screens/clear.js?v=20261109115231";
-import * as doors from "./screens/doors.js?v=20261109115231";
-import * as ending from "./screens/ending.js?v=20261109115231";
+import * as title from "./screens/title.js?v=20261109201037";
+import * as hero from "./screens/hero.js?v=20261109201037";
+import * as nameScreen from "./screens/name.js?v=20261109201037";
+import * as job from "./screens/job.js?v=20261109201037";
+import * as map from "./screens/map.js?v=20261109201037";
+import * as battle from "./screens/battle.js?v=20261109201037";
+import * as zukan from "./screens/zukan.js?v=20261109201037";
+import * as clear from "./screens/clear.js?v=20261109201037";
+import * as doors from "./screens/doors.js?v=20261109201037";
+import * as ending from "./screens/ending.js?v=20261109201037";
 
 const SCREENS = { title, hero, name: nameScreen, job, map, battle, zukan, chapter_clear: clear, doors, ending };
 

@@ -1,10 +1,10 @@
 // おもいで ずかん（あつめた カード）
-import { Assets } from "../assets.js?v=20261109115231";
-import { DB } from "../data.js?v=20261109115231";
-import { Game } from "../game.js?v=20261109115231";
-import { Voice } from "../voice.js?v=20261109115231";
-import { el, place } from "../util.js?v=20261109115231";
-import { label, button, cardPopup } from "../ui.js?v=20261109115231";
+import { Assets } from "../assets.js?v=20261109201037";
+import { DB } from "../data.js?v=20261109201037";
+import { Game } from "../game.js?v=20261109201037";
+import { Voice } from "../voice.js?v=20261109201037";
+import { el, place } from "../util.js?v=20261109201037";
+import { label, button, cardPopup } from "../ui.js?v=20261109201037";
 
 const CW = 148, CH = 198; // 7まい × 2だん
 

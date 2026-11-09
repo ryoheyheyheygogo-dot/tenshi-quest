@@ -1,10 +1,10 @@
 // なまえを いれる（ひらがな 4もじまで）
-import { Assets } from "../assets.js?v=20261109115231";
-import { DB } from "../data.js?v=20261109115231";
-import { Game } from "../game.js?v=20261109115231";
-import { Voice } from "../voice.js?v=20261109115231";
-import { el, place } from "../util.js?v=20261109115231";
-import { label, button, panel, keyboard, applyModifier } from "../ui.js?v=20261109115231";
+import { Assets } from "../assets.js?v=20261109201037";
+import { DB, isNgName } from "../data.js?v=20261109201037";
+import { Game } from "../game.js?v=20261109201037";
+import { Voice } from "../voice.js?v=20261109201037";
+import { el, place } from "../util.js?v=20261109201037";
+import { label, button, panel, keyboard, applyModifier, toast } from "../ui.js?v=20261109201037";
 
 export function build(root) {
   const max = DB.heroes.max_name_length || 4;
@@ -35,6 +35,13 @@ export function build(root) {
     refresh();
   } });
   button(root, "おわり", { x: 1118, y: 452, w: 150, h: 220, color: "#ff8a65", size: 36, icon: "check", iconSize: 80, onClick: () => {
+    if (isNgName(name)) {
+      // つかえない ことば：しからずに やさしく おしえて、いれなおして もらう
+      slots.forEach((s) => s.parentElement.animate([{ transform: "translateX(0)" }, { transform: "translateX(-10px)" }, { transform: "translateX(10px)" }, { transform: "translateX(0)" }], { duration: 300, iterations: 2 }));
+      toast(root, "その なまえは つかえないよ");
+      Voice.speak("その なまえは つかえないよ。べつの なまえに してね。", "system/name_ng");
+      return;
+    }
     Game.state.hero.name = name;
     Game.goto("job");
   } });

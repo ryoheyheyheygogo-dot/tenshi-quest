@@ -1,9 +1,9 @@
 // バトルの 演出（ひっさつわざ・コマンド・なかよし成功）
 // 画像は assets/effects/<ID>.png があれば それを使う（fist / tower / penguin / sparkle / heart）
 
-import { Assets } from "./assets.js?v=20261109115231";
-import { el, place, anim, wait, rand, fadeRemove } from "./util.js?v=20261109115231";
-import { label } from "./ui.js?v=20261109115231";
+import { Assets } from "./assets.js?v=20261109201037";
+import { el, place, anim, wait, rand, fadeRemove } from "./util.js?v=20261109201037";
+import { label } from "./ui.js?v=20261109201037";
 
 export class Effects {
   constructor(parent) {
@@ -88,7 +88,7 @@ export class Effects {
     // スプライトシート（assets/effects/tower_beam_0〜11.png）が あれば カットイン演出
     const frames = await this.loadFrames("tower_beam", 12);
     if (frames) return this.towerBeamCutin(frames, cx, cy);
-    const t = this.bigText("かいきょうゆめタワービーム！", "#e1f5fe", "#5c6bc0");
+    const t = this.bigText("かいきょうゆめタワースターライト！", "#e1f5fe", "#5c6bc0");
     const tower = Assets.visual("effects", "tower", 180, 520, "tower");
     place(tower, 60, 170);
     this.root.appendChild(tower);
@@ -140,15 +140,17 @@ export class Effects {
     const img = el("img", { parent: panel, style: { width: "100%", height: "100%", display: "block" } });
     img.src = frames[0];
     anim(panel, [{ transform: "scale(.6)", opacity: 0 }, { transform: "scale(1)", opacity: 1 }], { duration: 220, easing: "ease-out" });
-    const t = label(box, "かいきょうゆめタワービーム！", { y: 630, h: 80, size: 56, color: "#e1f5fe", outline: "#283593", outlineWidth: 6 });
+    const t = label(box, "かいきょうゆめタワースターライト！", { y: 630, h: 80, size: 56, color: "#e1f5fe", outline: "#283593", outlineWidth: 6 });
     anim(t, [{ transform: "scale(.4)" }, { transform: "scale(1.1)", offset: 0.7 }, { transform: "scale(1)" }], 300);
-    // コマごとの 表示時間（ms）：ためる → ひかる → ビーム（くりかえし）→ ばくはつ
-    const seq = [[0, 260], [1, 260], [2, 130], [3, 130], [4, 130], [5, 130], [6, 150],
-      [7, 110], [8, 110], [9, 110], [8, 110], [9, 110], [10, 160], [11, 380], [11, 0]];
+    // コマ：0〜5 ひかりを ためる → 6 はじける → 7〜9 ビーム（くりかえして ながめに）→ 10 とどいて ばくはつ → 11 よいん
+    const beam = [];
+    for (let i = 0; i < 4; i++) beam.push([7, 120], [8, 120], [9, 120], [8, 120]);
+    const seq = [[0, 260], [1, 260], [2, 130], [3, 130], [4, 130], [5, 150],
+      [6, 200], ...beam, [9, 160], [10, 520], [11, 420]];
     for (const [f, ms] of seq) {
       img.src = frames[f];
-      if (f === 7) this.flash("rgba(200,240,255,.5)");
-      if (f === 10) Assets.sound("punch");
+      if (f === 6) this.flash("rgba(200,240,255,.5)");
+      if (f === 10) { this.flash("rgba(255,250,220,.6)"); Assets.sound("punch"); }
       if (ms) await wait(ms);
     }
     await wait(250);

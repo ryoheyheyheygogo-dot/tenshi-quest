@@ -1,6 +1,6 @@
 // 進行状況・フラグ・カード・セーブ（ブラウザの localStorage に 保存）
 
-import { DB } from "./data.js?v=20261109115231";
+import { DB } from "./data.js?v=20261109201037";
 
 const SAVE_KEY = "youchien_quest_save_v1";
 const SETTINGS_KEY = "youchien_quest_settings_v1";
