@@ -1,9 +1,9 @@
 // バトルの 演出（ひっさつわざ・コマンド・なかよし成功）
 // 画像は assets/effects/<ID>.png があれば それを使う（fist / tower / penguin / sparkle / heart）
 
-import { Assets } from "./assets.js?v=20261108231158";
-import { el, place, anim, wait, rand, fadeRemove } from "./util.js?v=20261108231158";
-import { label } from "./ui.js?v=20261108231158";
+import { Assets } from "./assets.js?v=20261109115231";
+import { el, place, anim, wait, rand, fadeRemove } from "./util.js?v=20261109115231";
+import { label } from "./ui.js?v=20261109115231";
 
 export class Effects {
   constructor(parent) {

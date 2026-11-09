@@ -1,14 +1,16 @@
 // ときの とびら（スタンプカード）
 // すきな じだいを えらんで とびらを くぐる。クリアした じだいには スタンプ。
-import { Assets } from "../assets.js?v=20261108231158";
-import { DB } from "../data.js?v=20261108231158";
-import { Game } from "../game.js?v=20261108231158";
-import { Voice } from "../voice.js?v=20261108231158";
-import { el, place, anim } from "../util.js?v=20261108231158";
-import { label, button, toast, dialogue } from "../ui.js?v=20261108231158";
+import { Assets } from "../assets.js?v=20261109115231";
+import { DB } from "../data.js?v=20261109115231";
+import { Game } from "../game.js?v=20261109115231";
+import { Voice } from "../voice.js?v=20261109115231";
+import { el, place, anim } from "../util.js?v=20261109115231";
+import { label, button, toast, dialogue } from "../ui.js?v=20261109115231";
 
 export async function build(root, params) {
-  const bg = Assets.visual("backgrounds", "doors", 1280, 720, "bg_doors");
+  // assets/backgrounds/doors.png（試作）は 絵の中に とびらが 4つ 描かれていて、タッチできる とびら（door_ch1〜4）と
+  // 位置も 大きさも ずれて 二重に 見えるため 使わない。とびらの ない 背景が できたら doors_plain.png の 名前で 置くと 使われます。
+  const bg = Assets.visual("backgrounds", "doors_plain", 1280, 720, "bg_doors");
   place(bg, 0, 0);
   root.appendChild(bg);
   label(root, DB.eras.title || "ときの とびら", { y: 14, h: 90, size: 64, color: "#fff59d", outline: "#5e35b1", outlineWidth: 6 });

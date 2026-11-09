@@ -2,9 +2,9 @@
 // assets/<しゅるい>/<ID>.png があれば それを使い、なければ 仮素材（art.js）を 描く。
 // → 画像は ファイルを置くだけで 差し替わる。
 
-import { artSvg } from "./art.js?v=20261108231158";
-import { el } from "./util.js?v=20261108231158";
-import { VERSION } from "./version.js?v=20261108231158";
+import { artSvg } from "./art.js?v=20261109115231";
+import { el } from "./util.js?v=20261109115231";
+import { VERSION } from "./version.js?v=20261109115231";
 
 // manifest.json が あるときは その一覧どおりに、ないときは png → webp、mp3 だけを さがす（ムダな通信を へらす）
 const IMAGE_EXTS_ALL = ["png", "webp", "jpg"];
@@ -13,6 +13,9 @@ const found = new Map(); // "category/id" -> url | null | Promise
 
 /** assets/manifest.json があれば それに のっている ファイルだけ 探す（404 を へらす） */
 let manifest = null;
+
+/** 画像が 試作で つかえない アイコン（仮素材の まま） */
+const SKIP_ICON_IMAGE = new Set(["special"]);
 
 export const Assets = {
   /** true にすると 仮素材に ファイル名を表示（画像づくりの確認用） */
@@ -84,7 +87,25 @@ export const Assets = {
   },
 
   icon(name, size, color = "#ffffff") {
-    return this.visual("ui", "icon_" + name, size, size, "icon_" + name, color);
+    // 試作素材（2026/11/9）の注意：
+    // ・icon_speaker_off.png は icon_speaker.png と まったく同じ絵 → オンの絵に 赤い ななめ線を かさねて「オフ」に する
+    // ・icon_special.png は icon_aisatsu.png と まったく同じ絵（おひさま）→ バトルで 見分けが つかないので 仮素材（ほし）を つかう
+    //   ちゃんと 別の絵が とどいたら SKIP_ICON_IMAGE から はずせば 画像が つかわれます
+    const id = name === "speaker_off" ? "icon_speaker" : "icon_" + name;
+    const box = SKIP_ICON_IMAGE.has(name)
+      ? this.visual("ui", [], size, size, "icon_" + name, color)
+      : this.visual("ui", id, size, size, "icon_" + name, color);
+    box.classList.add("smooth"); // 256px の絵を 小さく するので なめらかに
+    if (name !== "speaker_off") return box;
+    // 画像の 読みこみで 中身が 入れかわっても 線が 消えないよう、外がわの 枠に 線を のせる
+    const wrap = el("div", { cls: "vis" });
+    wrap.style.width = size + "px";
+    wrap.style.height = size + "px";
+    box.style.left = "0px";
+    box.style.top = "0px";
+    wrap.appendChild(box);
+    el("div", { cls: "icon-slash", parent: wrap });
+    return wrap;
   },
 
   /** 音声ファイルの URL（なければ null） */

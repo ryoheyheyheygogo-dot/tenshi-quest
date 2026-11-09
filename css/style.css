@@ -48,6 +48,7 @@ html, body {
 .vis svg, .vis img { width: 100%; height: 100%; display: block; }
 .vis img { object-fit: contain; image-rendering: pixelated; }
 .vis.smooth img { image-rendering: auto; }
+.icon-slash { position: absolute; left: 50%; top: 50%; width: 118%; height: 12%; background: #e53935; border: 3px solid #fff; border-radius: 99px; transform: translate(-50%, -50%) rotate(-45deg); box-sizing: border-box; }
 
 .label {
   position: absolute; display: flex; align-items: center; justify-content: center; text-align: center;

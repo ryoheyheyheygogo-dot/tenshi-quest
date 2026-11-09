@@ -2,14 +2,14 @@
 // ・あう コマンド → ハートが たくさん / ほかの コマンド → すこし（かならず かてる）
 // ・ひっさつわざ → 1かいだけ。ハートが たくさん
 // ・ハートが いっぱいで なかよし 成功
-import { Assets } from "../assets.js?v=20261108231158";
-import { DB } from "../data.js?v=20261108231158";
-import { Game } from "../game.js?v=20261108231158";
-import { Voice } from "../voice.js?v=20261108231158";
-import { el, place, anim } from "../util.js?v=20261108231158";
-import { label, button, panel, HeartGauge } from "../ui.js?v=20261108231158";
-import { Effects } from "../effects.js?v=20261108231158";
-import { Bgm } from "../bgm.js?v=20261108231158";
+import { Assets } from "../assets.js?v=20261109115231";
+import { DB } from "../data.js?v=20261109115231";
+import { Game } from "../game.js?v=20261109115231";
+import { Voice } from "../voice.js?v=20261109115231";
+import { el, place, anim } from "../util.js?v=20261109115231";
+import { label, button, panel, HeartGauge } from "../ui.js?v=20261109115231";
+import { Effects } from "../effects.js?v=20261109115231";
+import { Bgm } from "../bgm.js?v=20261109115231";
 
 const MW = 340, MH = 340, MX = 470, MY = 40;
 const TARGET = { x: MX + MW / 2, y: MY + MH / 2 };

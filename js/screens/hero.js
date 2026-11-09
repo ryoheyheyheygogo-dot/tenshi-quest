@@ -1,10 +1,10 @@
 // しゅじんこう えらび（おとこのこ／おんなのこ と すきな いろ）
-import { Assets } from "../assets.js?v=20261108231158";
-import { DB } from "../data.js?v=20261108231158";
-import { Game } from "../game.js?v=20261108231158";
-import { Voice } from "../voice.js?v=20261108231158";
-import { el, place } from "../util.js?v=20261108231158";
-import { label, button } from "../ui.js?v=20261108231158";
+import { Assets } from "../assets.js?v=20261109115231";
+import { DB } from "../data.js?v=20261109115231";
+import { Game } from "../game.js?v=20261109115231";
+import { Voice } from "../voice.js?v=20261109115231";
+import { el, place } from "../util.js?v=20261109115231";
+import { label, button } from "../ui.js?v=20261109115231";
 
 export function build(root) {
   el("div", { cls: "fill", parent: root, style: { background: "linear-gradient(#22356f, #142352)" } });

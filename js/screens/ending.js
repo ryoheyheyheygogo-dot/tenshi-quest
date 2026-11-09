@@ -1,10 +1,10 @@
 // エンディング：4つの かけらで おいわいの きに はなが さく
-import { Assets } from "../assets.js?v=20261108231158";
-import { DB } from "../data.js?v=20261108231158";
-import { Game } from "../game.js?v=20261108231158";
-import { Voice } from "../voice.js?v=20261108231158";
-import { el, place, anim, wait, rand } from "../util.js?v=20261108231158";
-import { label, button, dialogue } from "../ui.js?v=20261108231158";
+import { Assets } from "../assets.js?v=20261109115231";
+import { DB } from "../data.js?v=20261109115231";
+import { Game } from "../game.js?v=20261109115231";
+import { Voice } from "../voice.js?v=20261109115231";
+import { el, place, anim, wait, rand } from "../util.js?v=20261109115231";
+import { label, button, dialogue } from "../ui.js?v=20261109115231";
 
 export async function build(root) {
   let alive = true;
@@ -12,8 +12,10 @@ export async function build(root) {
   place(bg, 0, 0);
   root.appendChild(bg);
 
-  // エンディング画像（文字入り）が あるときは きと 文字を かさねない
+  // エンディング画像（文字入り）が あるときは、はじめに うすい まくを かけて きに はなを さかせ、
+  // さいたら きと まくを けして おいわいの 絵を みせる（文字と きが かさならない）
   const bgHasTitle = !!(await Assets.findImage("backgrounds", "ending"));
+  const veil = bgHasTitle ? el("div", { cls: "fill", parent: root, style: { background: "rgba(255,248,230,.93)" } }) : null;
   const tree = Assets.visual("ui", "tree", 420, 420, "tree");
   place(tree, 430, 130);
   root.appendChild(tree);
@@ -21,7 +23,6 @@ export async function build(root) {
   place(bloom, 430, 130);
   bloom.style.opacity = 0;
   root.appendChild(bloom);
-  if (bgHasTitle) { tree.style.display = "none"; bloom.style.display = "none"; }
 
   const run = async () => {
     await wait(500);
@@ -43,7 +44,8 @@ export async function build(root) {
     // はなが さく
     const flash = el("div", { cls: "fill", parent: root, style: { background: "#fff" } });
     anim(flash, [{ opacity: 1 }, { opacity: 0 }], 700).then(() => flash.remove());
-    if (!bgHasTitle) bloom.style.opacity = 1;
+    bloom.style.opacity = 1;
+    tree.style.opacity = 0;
     Assets.sound("clear");
     for (let i = 0; i < 30; i++) {
       const p = Assets.visual("effects", "petal", 36, 36, "petal");
@@ -51,6 +53,14 @@ export async function build(root) {
       root.appendChild(p);
       anim(p, [{ transform: "translate(0,0) rotate(0)" }, { transform: `translate(${rand(-120, 120)}px, 800px) rotate(${rand(180, 720)}deg)` }],
         { duration: rand(3500, 6500), delay: rand(0, 3000), easing: "linear" }).then(() => p.remove());
+    }
+    if (bgHasTitle) {
+      // さいた きを すこし みせてから、おいわいの 絵へ
+      await wait(2600);
+      if (!alive) return;
+      await anim(bloom, [{ opacity: 1 }, { opacity: 0 }], { duration: 600, fill: "forwards" });
+      await anim(veil, [{ opacity: 1 }, { opacity: 0 }], { duration: 800, fill: "forwards" });
+      veil.remove(); bloom.remove(); tree.remove();
     }
     const t = bgHasTitle ? el("div", { parent: root }) : label(root, "75さい おめでとう！", { y: 20, h: 130, size: 92, color: "#fff176", outline: "#e91e63", outlineWidth: 8 });
     anim(t, [{ transform: "scale(.3)", opacity: 0 }, { transform: "scale(1.1)", opacity: 1, offset: 0.7 }, { transform: "scale(1)", opacity: 1 }], 600);

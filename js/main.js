@@ -1,22 +1,22 @@
 // はじまり：データを読み込み、画面を 切り替える係
 
-import { DB } from "./data.js?v=20261108231158";
-import { Game } from "./game.js?v=20261108231158";
-import { Assets } from "./assets.js?v=20261108231158";
-import { Voice } from "./voice.js?v=20261108231158";
-import { Bgm } from "./bgm.js?v=20261108231158";
-import { wait } from "./util.js?v=20261108231158";
+import { DB } from "./data.js?v=20261109115231";
+import { Game } from "./game.js?v=20261109115231";
+import { Assets } from "./assets.js?v=20261109115231";
+import { Voice } from "./voice.js?v=20261109115231";
+import { Bgm } from "./bgm.js?v=20261109115231";
+import { wait } from "./util.js?v=20261109115231";
 
-import * as title from "./screens/title.js?v=20261108231158";
-import * as hero from "./screens/hero.js?v=20261108231158";
-import * as nameScreen from "./screens/name.js?v=20261108231158";
-import * as job from "./screens/job.js?v=20261108231158";
-import * as map from "./screens/map.js?v=20261108231158";
-import * as battle from "./screens/battle.js?v=20261108231158";
-import * as zukan from "./screens/zukan.js?v=20261108231158";
-import * as clear from "./screens/clear.js?v=20261108231158";
-import * as doors from "./screens/doors.js?v=20261108231158";
-import * as ending from "./screens/ending.js?v=20261108231158";
+import * as title from "./screens/title.js?v=20261109115231";
+import * as hero from "./screens/hero.js?v=20261109115231";
+import * as nameScreen from "./screens/name.js?v=20261109115231";
+import * as job from "./screens/job.js?v=20261109115231";
+import * as map from "./screens/map.js?v=20261109115231";
+import * as battle from "./screens/battle.js?v=20261109115231";
+import * as zukan from "./screens/zukan.js?v=20261109115231";
+import * as clear from "./screens/clear.js?v=20261109115231";
+import * as doors from "./screens/doors.js?v=20261109115231";
+import * as ending from "./screens/ending.js?v=20261109115231";
 
 const SCREENS = { title, hero, name: nameScreen, job, map, battle, zukan, chapter_clear: clear, doors, ending };
 
@@ -99,7 +99,7 @@ function warmUp() {
   for (const j of DB.jobs) p.push(["characters", `job_${j.id}`]);
   for (const sp of Object.values(DB.speakers)) if (sp.visual) p.push(["characters", sp.visual], ["characters", "face_" + sp.visual]);
   for (const id of Object.keys(DB.monsters)) p.push(["monsters", id], ["monsters", "battle_" + id]);
-  for (const id of ["title", "yard_ch1", "battle_ch1", "battle_yard", "doors", "clear", "ending"]) p.push(["backgrounds", id]);
+  for (const id of ["title", "yard_ch1", "battle_ch1", "battle_yard", "battle_ch2", "battle_ch3", "battle_ch4", "yard_ch2", "yard_ch3", "yard_ch4", "doors_plain", "clear", "ending"]) p.push(["backgrounds", id]);
   for (const id of ["heart_full", "heart_empty", "chest", "chest_open", "bubble", "shadow", "tap_marker", "logo", "stamp", "kakera_1"]) p.push(["ui", id]);
   for (const ic of ["play", "continue", "next", "back", "check", "cross", "speaker", "speaker_off", "book", "save", "home", "erase", "special", "door", "star",
     "aisatsu", "katazuke", "itadakimasu", "hayaoki", "nakanaori"]) p.push(["ui", "icon_" + ic]);
